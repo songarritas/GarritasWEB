@@ -1,0 +1,30 @@
+# Cron 1: todos los días despierta la base de Supabase para que el plan gratis no la pause.
+name: Mantener Supabase activo
+on:
+  schedule:
+    - cron: "17 11 * * *"   # todos los días 8:17 (hora Argentina)
+  workflow_dispatch: {}       # botón para correrlo a mano
+jobs:
+  latido:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Consultar la base
+        env:
+          SUPABASE_URL: https://ibmfufyzdvguvzghmbxo.supabase.co
+          # Clave pública (la misma que usa la web en config.js). No es secreta.
+          SUPABASE_ANON: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlibWZ1Znl6ZHZndXZ6Z2htYnhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0MDkzMzgsImV4cCI6MjEwNzk4NTMzOH0.A7zI1AYyloOe0Uu85RMn2-n-FQggNqK8zZP3hxjdfgE
+        run: |
+          set -e
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$SUPABASE_URL/rest/v1/rpc/latido" \
+              -H "apikey: $SUPABASE_ANON" -H "Authorization: Bearer $SUPABASE_ANON" -H "Content-Type: application/json" -d '{}')
+            echo "Respuesta: $code"
+            if [ "$code" = "200" ]; then
+              curl -sf "$SUPABASE_URL/rest/v1/config?select=banner_on" -H "apikey: $SUPABASE_ANON" -H "Authorization: Bearer $SUPABASE_ANON" > /dev/null
+              echo "Supabase activo."; exit 0
+            fi
+            sleep 20
+          done
+          echo "::error::Supabase no respondió. Si está pausado, entrá a supabase.com y tocá Restore."
+          exit 1

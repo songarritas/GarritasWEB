@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uñas press on personalizadas pintadas a mano | Garritas Mías</title>
+<meta name="description" content="Uñas postizas press on personalizadas, pintadas a mano y a tu medida. Con kit de aplicación o solo uñas. Envíos a todo el país.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Garritas Mías · Uñas press on personalizadas">
+<meta property="og:description" content="Pintadas a mano y a tu medida. Envíos a todo el país.">
+<meta property="og:image" content="og.jpg">
+<meta name="theme-color" content="#272224">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} [hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Outfit:wght@400;500;600;800&display=swap">
+<style>
+/* Layout: "cuaderno punk". Hoja cuadriculada de fondo en toda la página, bandas negras como cinta, fotos tipo sticker. Una columna en celu, composiciones asimétricas en escritorio. */
+:root {
+  --amarillo: #FFF49D;
+  --rosa: #FC97C6;
+  --rosa-tinta: #C9468A;
+  --tinta: #272224;
+  --gris: #57504F;
+  --papel: #FFFBE0;
+  --linea: rgba(39, 34, 36, .08);
+  --blanco: #FFFFFF;
+  --swash: "Berkshire Swash", "Brush Script MT", cursive;
+  --display: "Abril Fatface", Georgia, serif;
+  --body: "Outfit", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; font-family: var(--body); color: var(--tinta); font-size: 16px; line-height: 1.55;
+  background-color: var(--papel);
+  background-image: linear-gradient(var(--linea) 1px, transparent 1px), linear-gradient(90deg, var(--linea) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+img { display: block; max-width: 100%; }
+main { overflow-x: clip; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 72px; }
+.titulo { margin: 0; font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; line-height: 1; font-size: clamp(2rem, 5.5vw, 3.2rem); text-wrap: balance; }
+.mano { font-family: var(--swash); font-weight: 400; line-height: 1.15; }
+.mano u { text-decoration-color: var(--rosa); text-decoration-thickness: .22em; text-underline-offset: -.02em; text-decoration-skip-ink: none; }
+.nota { font-family: var(--swash); color: var(--gris); font-size: 1.2rem; }
+.lead { margin: 0; color: var(--gris); max-width: 52ch; font-size: 1.08rem; }
+.falta { background: var(--amarillo); outline: 2px dashed var(--rosa-tinta); outline-offset: 2px; padding: 0 4px; border-radius: 3px; }
+:focus-visible { outline: 3px solid var(--rosa-tinta); outline-offset: 3px; }
+
+/* Menú */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--tinta); color: var(--amarillo); border-bottom: 3px solid var(--rosa); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.nav .logo img { height: 44px; width: auto; }
+.nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-weight: 600; }
+.nav ul a { text-decoration: none; }
+.nav ul a:hover { text-decoration: underline; text-decoration-color: var(--rosa); text-decoration-thickness: 4px; }
+.nav-cta { background: var(--rosa); color: var(--tinta); text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 999px; white-space: nowrap; transition: transform .15s; }
+.nav-cta:hover { transform: rotate(-3deg); }
+.nav-burger { display: none; appearance: none; background: none; border: 2.5px solid var(--amarillo); border-radius: 10px; width: 44px; height: 40px; font: 700 1.1rem var(--body); color: var(--amarillo); cursor: pointer; }
+.menu-movil { display: none; }
+@media (max-width: 820px) {
+  .nav ul, .nav-cta { display: none; }
+  .nav-burger { display: block; }
+  .menu-movil:not([hidden]) { display: flex; flex-direction: column; border-top: 2px solid var(--rosa); }
+  .menu-movil a { padding: 14px max(16px, env(safe-area-inset-left, 0px)); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(255, 244, 157, .2); color: var(--amarillo); }
+}
+
+/* Portada */
+.hero { padding-block: 48px 64px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+.hero-txt { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.hero-txt img.wm { width: min(420px, 90%); height: auto; }
+.hero .sub { margin: 0; font-family: var(--body); font-weight: 500; font-size: 1.12rem; line-height: 1.5; color: var(--gris); max-width: 52ch; }
+.hero h1 { margin: 0; font-size: clamp(2.1rem, 5vw, 3.4rem); text-wrap: balance; }
+.btn-garra { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: var(--rosa); color: var(--tinta); border: 3px solid var(--tinta); box-shadow: 6px 6px 0 var(--tinta); padding: 15px 26px; border-radius: 999px; font-weight: 800; text-transform: uppercase; text-decoration: none; letter-spacing: .02em; transition: transform .12s, box-shadow .12s; }
+.btn-garra:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--tinta); }
+.btn-garra:active { transform: translate(4px, 4px); box-shadow: 2px 2px 0 var(--tinta); }
+.stickers { position: relative; height: 470px; }
+.stk { position: absolute; background: var(--blanco); border: 3px solid var(--tinta); padding: 10px 10px 36px; box-shadow: 7px 7px 0 var(--tinta); transition: transform .25s; }
+.stk img { width: 230px; height: 290px; object-fit: cover; }
+.stk span { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-family: var(--swash); font-size: 1.05rem; }
+.stk::before { content: ""; position: absolute; top: -14px; left: 50%; width: 86px; height: 26px; background: var(--rosa); opacity: .92; transform: translateX(-50%) rotate(-5deg); border: 2px solid var(--tinta); }
+.stk.s1 { left: 0; top: 30px; transform: rotate(-6deg); }
+.stk.s2 { right: 0; top: 110px; transform: rotate(5deg); }
+.stk:hover { transform: rotate(0deg) scale(1.03); z-index: 3; }
+.hero .paw { position: absolute; width: 110px; right: 34px; top: -10px; transform: rotate(14deg); filter: drop-shadow(4px 4px 0 var(--tinta)); z-index: 2; }
+@media (max-width: 820px) {
+  .hero .wrap { grid-template-columns: 1fr; gap: 24px; }
+  .stickers { height: 360px; }
+  .stk img { width: 160px; height: 205px; }
+  .stk.s2 { top: 80px; }
+  .hero .paw { width: 80px; right: 6px; }
+  .hero-txt img.wm { display: none; }
+  .stk span { font-size: .85rem; }
+}
+
+/* Franja */
+.franja { background: var(--tinta); color: var(--amarillo); overflow: hidden; white-space: nowrap; padding-block: 14px; font-weight: 800; letter-spacing: .08em; transform: rotate(-1deg); margin-inline: -8px; }
+.franja div { display: inline-block; animation: correr 26s linear infinite; }
+.franja b { color: var(--rosa); margin: 0 14px; }
+@keyframes correr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Portfolio */
+.portfolio .wrap { display: flex; flex-direction: column; gap: 26px; }
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; }
+.filtros button { appearance: none; border: 2.5px solid var(--tinta); background: var(--blanco); color: var(--tinta); font: 600 .95rem var(--body); padding: 8px 16px; border-radius: 12px; cursor: pointer; }
+.filtros button[aria-pressed="true"] { background: var(--tinta); color: var(--amarillo); }
+.grilla { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 26px; }
+.set { appearance: none; border: 0; background: none; padding: 0; text-align: left; cursor: pointer; color: var(--tinta); font-family: var(--body); display: flex; flex-direction: column; gap: 10px; }
+.set .foto { background: var(--blanco); border: 3px solid var(--tinta); padding: 8px; box-shadow: 5px 5px 0 var(--tinta); transition: transform .2s; }
+.set:nth-child(odd) .foto { transform: rotate(-1.6deg); }
+.set:nth-child(even) .foto { transform: rotate(1.4deg); }
+.set:hover .foto { transform: rotate(0) translateY(-4px); }
+.set img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.set strong { font-family: var(--swash); font-weight: 400; font-size: 1.45rem; line-height: 1.1; }
+.set small { color: var(--gris); font-size: .92rem; }
+.set.oculto { display: none; }
+@media (max-width: 900px) { .grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; } .set strong { font-size: 1.2rem; } }
+
+/* Visor */
+.visor[hidden] { display: none; }
+.visor { position: fixed; inset: 0; z-index: 50; background: rgba(39, 34, 36, .82); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.visor-caja { background: var(--papel); border: 3px solid var(--tinta); border-radius: 18px; width: min(900px, 100%); max-height: 100%; overflow-y: auto; display: grid; grid-template-columns: 1.1fr .9fr; }
+.visor-fotos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--tinta); }
+.visor-fotos img { flex: 0 0 100%; width: 100%; aspect-ratio: 4/5; object-fit: cover; scroll-snap-align: start; }
+.visor-txt { padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.visor-txt h3 { margin: 0; font-size: 2rem; }
+.visor-txt p { margin: 0; color: var(--gris); }
+.visor-cerrar { appearance: none; align-self: flex-end; background: var(--blanco); border: 2.5px solid var(--tinta); border-radius: 999px; padding: 6px 14px; font: 700 .9rem var(--body); cursor: pointer; color: var(--tinta); }
+.btn-asi { align-self: flex-start; background: var(--tinta); color: var(--amarillo); text-decoration: none; font-weight: 700; padding: 13px 20px; border-radius: 12px 18px 12px 16px; border: 0; cursor: pointer; font-family: var(--body); font-size: 1rem; }
+.btn-asi:hover { background: var(--rosa-tinta); }
+.pista { font-size: .85rem; color: var(--gris); }
+@media (max-width: 760px) { .visor-caja { grid-template-columns: 1fr; } }
+
+/* Armá tu pedido */
+.armar { background: var(--amarillo); border-block: 3px solid var(--tinta); }
+.armar .wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: 44px; align-items: start; }
+.armar-intro { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px; }
+.armar form { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.armar fieldset { border: 0; margin: 0; padding: 0; }
+.armar legend { font-weight: 700; margin-bottom: 10px; padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips label { position: relative; }
+.chips input { position: absolute; inset: 0; opacity: 0; cursor: pointer; margin: 0; }
+.chips span { display: inline-block; padding: 10px 16px; border-radius: 12px; border: 3px solid var(--tinta); background: var(--blanco); font-weight: 500; }
+.chips input:checked + span { background: var(--rosa); font-weight: 800; }
+.chips input:focus-visible + span { outline: 3px solid var(--rosa-tinta); outline-offset: 2px; }
+.armar textarea { width: 100%; min-height: 90px; resize: vertical; border: 3px solid var(--tinta); border-radius: 12px; padding: 12px; font: 1rem var(--body); background: var(--blanco); color: var(--tinta); }
+.armar label.campo { font-weight: 700; display: flex; flex-direction: column; gap: 8px; }
+.resumen { background: var(--tinta); color: var(--amarillo); border-radius: 18px; padding: 20px; box-shadow: 7px 7px 0 var(--rosa); display: flex; flex-direction: column; gap: 14px; }
+.resumen p { margin: 0; }
+.resumen p b { color: var(--rosa); }
+.btn-copiar { appearance: none; border: 0; background: var(--amarillo); color: var(--tinta); font: 800 1.05rem var(--body); padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.btn-copiar:active { transform: scale(.98); }
+.estado { font-size: .9rem; color: #FFD3E7; min-height: 1.3em; }
+.aviso-copia { background: var(--rosa); color: var(--tinta); border-radius: 10px; padding: 10px 12px; font-size: 1.02rem; }
+.resumen .aviso-copia b { color: var(--tinta); }
+.resumen #resumen { background: var(--papel); color: var(--tinta); border-radius: 10px; padding: 12px 14px; font-size: 1.02rem; border: 2px dashed var(--amarillo); }
+.resumen #resumen b { color: var(--tinta); background: var(--amarillo); padding: 0 4px; border-radius: 4px; }
+.copiado[hidden] { display: none; }
+.copiado { position: fixed; inset: 0; z-index: 60; background: rgba(39, 34, 36, .82); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.copiado-caja { background: var(--papel); border: 3px solid var(--tinta); border-radius: 20px; box-shadow: 8px 8px 0 var(--rosa); width: min(480px, 100%); max-height: 100%; overflow-y: auto; padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.copiado-caja h3 { margin: 0; font-size: 2rem; }
+.copiado-caja ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 1.05rem; }
+.copiado-caja textarea { width: 100%; min-height: 96px; border: 2.5px solid var(--tinta); border-radius: 12px; padding: 10px; font: .95rem var(--body); background: var(--blanco); color: var(--tinta); resize: vertical; }
+.btn-chat { display: flex; justify-content: center; align-items: center; background: var(--tinta); color: var(--amarillo); text-decoration: none; font-weight: 800; font-size: 1.1rem; padding: 16px; border-radius: 14px; }
+.btn-chat:hover { background: var(--rosa-tinta); }
+.copiado-cerrar { appearance: none; align-self: center; background: none; border: 0; color: var(--gris); font: 600 .95rem var(--body); text-decoration: underline; cursor: pointer; }
+@media (max-width: 860px) { .armar .wrap { grid-template-columns: 1fr; gap: 28px; } .armar-intro { position: static; } }
+
+/* Cómo funciona */
+.pasos .wrap { display: flex; flex-direction: column; gap: 34px; }
+.camino { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; counter-reset: paso; }
+.camino li { counter-increment: paso; display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 3px solid var(--tinta); }
+.camino li::before { content: counter(paso); font-family: var(--display); font-size: 2.6rem; line-height: 1; color: var(--rosa-tinta); }
+.camino strong { font-size: 1.1rem; }
+.camino span { color: var(--gris); }
+.talles { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 3px solid var(--tinta); border-radius: 18px; overflow: hidden; background: var(--blanco); }
+.talles > div { padding: 24px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.talles > div + div { border-left: 3px solid var(--tinta); background: var(--rosa); }
+.talles h3 { margin: 0; font-size: 1.6rem; }
+.talles ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.talles ol.medir { list-style: none; padding: 0; gap: 12px; counter-reset: med; }
+.medir li { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: center; counter-increment: med; }
+.medir .ilus { background: var(--amarillo); border: 2.5px solid var(--tinta); border-radius: 14px; padding: 6px; position: relative; }
+.medir .ilus::after { content: counter(med); position: absolute; top: -10px; left: -10px; width: 26px; height: 26px; border-radius: 50%; background: var(--tinta); color: var(--amarillo); display: grid; place-items: center; font: 800 .85rem var(--body); }
+.medir svg { display: block; width: 100%; height: auto; }
+.medir li > span:last-child { min-width: 0; }
+.repetir { margin: 0; font-weight: 800; }
+.tabla { overflow-x: auto; }
+.tabla table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.tabla th, .tabla td { border-bottom: 2px solid var(--tinta); padding: 8px 6px; text-align: left; white-space: nowrap; }
+@media (max-width: 860px) { .camino { grid-template-columns: 1fr; } .talles { grid-template-columns: 1fr; } .talles > div + div { border-left: 0; border-top: 3px solid var(--tinta); } }
+
+/* Sobre la artista */
+.artista .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+.pola { background: var(--blanco); padding: 12px 12px 46px; box-shadow: 0 10px 24px rgba(39, 34, 36, .2); transform: rotate(-2deg); position: relative; max-width: 620px; width: 100%; }
+.pola img, .pola video { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--tinta); }
+.sonido { position: absolute; right: 18px; bottom: 54px; appearance: none; border: 2.5px solid var(--tinta); background: var(--amarillo); color: var(--tinta); border-radius: 999px; padding: 6px 12px; font: 700 .85rem var(--body); cursor: pointer; }
+.precio { background: var(--blanco); border: 3px solid var(--tinta); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.precio b { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1; }
+.precio small { color: var(--gris); }
+.dijes { display: flex; align-items: center; gap: 12px; }
+.dijes button { appearance: none; width: 44px; height: 44px; border-radius: 12px; border: 3px solid var(--tinta); background: var(--blanco); font: 800 1.3rem var(--body); color: var(--tinta); cursor: pointer; }
+.dijes output { font: 800 1.4rem var(--body); min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums; }
+.pola span { position: absolute; left: 14px; bottom: 10px; font-family: var(--swash); font-size: 1.2rem; }
+.pola::before { content: ""; position: absolute; top: -12px; right: 30px; width: 90px; height: 24px; background: rgba(255, 244, 157, .95); transform: rotate(8deg); }
+.artista-txt { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.artista-txt h2 { margin: 0; font-size: clamp(1.9rem, 4.2vw, 2.7rem); }
+.artista-txt p { margin: 0; max-width: 58ch; }
+.firma { font-family: var(--swash); font-size: 1.6rem; color: var(--rosa-tinta); }
+@media (max-width: 820px) { .artista .wrap { grid-template-columns: 1fr; gap: 30px; } .pola { justify-self: center; } }
+
+/* Reseñas (vacío diseñado) */
+.resenas { padding-block: 72px; }
+
+
+
+.resenas .vacio { border: 3px dashed var(--tinta); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 12px; background: rgba(255, 255, 255, .6); }
+.resenas .vacio p { margin: 0; color: var(--gris); }
+.btn-etiqueta { align-self: flex-start; text-decoration: none; font-weight: 700; border-bottom: 3px solid var(--rosa); padding-bottom: 2px; }
+
+/* Preguntas */
+.faq .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; }
+.faq details { border-bottom: 3px solid var(--tinta); padding-block: 16px; }
+.faq details:first-child { border-top: 3px solid var(--tinta); }
+.faq summary { font-weight: 700; font-size: 1.1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--display); font-size: 1.5rem; line-height: 1; color: var(--rosa-tinta); }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 10px 0 0; color: var(--gris); max-width: 60ch; }
+@media (max-width: 820px) { .faq .wrap { grid-template-columns: 1fr; gap: 20px; } }
+
+/* Contacto */
+.contacto { background: var(--tinta); color: var(--papel); }
+.contacto .canales .falta { color: var(--tinta); }
+.contacto .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.contacto h2 { margin: 0; color: var(--amarillo); }
+.contacto .lead { color: #E9E2D6; }
+.canales { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.canales li { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding-block: 14px; border-bottom: 1.5px solid rgba(255, 251, 224, .25); }
+.canales li span:first-child { color: var(--rosa); font-weight: 700; }
+.canales a { text-decoration: none; font-weight: 600; }
+.canales a:hover { color: var(--amarillo); }
+.contacto form { background: var(--papel); color: var(--tinta); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 8px 8px 0 var(--rosa); }
+.contacto form label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
+.contacto input, .contacto select, .contacto form textarea { border: 2.5px solid var(--tinta); border-radius: 10px; padding: 11px 12px; font: 1rem var(--body); background: var(--blanco); color: var(--tinta); width: 100%; }
+.contacto form textarea { min-height: 110px; resize: vertical; }
+.btn-enviar { appearance: none; align-self: flex-start; border: 3px solid var(--tinta); background: var(--amarillo); color: var(--tinta); font: 800 1rem var(--body); padding: 13px 24px; border-radius: 6px 20px 6px 20px; cursor: pointer; text-transform: uppercase; letter-spacing: .03em; }
+.btn-enviar:hover { background: var(--rosa); }
+.form-estado { margin: 0; font-weight: 600; min-height: 1.4em; }
+@media (max-width: 860px) { .contacto .wrap { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Pie */
+.pie { background: var(--amarillo); border-top: 3px solid var(--tinta); padding-block: 36px; }
+.pie .wrap { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
+.pie img { height: 54px; width: auto; }
+.pie nav { display: flex; gap: 20px; flex-wrap: wrap; font-weight: 600; }
+.pie nav a { text-decoration: none; }
+.pie small { width: 100%; color: var(--tinta); }
+
+
+/* Talles en tarjetas */
+.talle-cards { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.talle-cards div { background: var(--papel); border: 2.5px solid var(--tinta); border-radius: 12px; padding: 10px 12px; display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; font-variant-numeric: tabular-nums; }
+.talle-cards b { font-family: var(--display); font-weight: 400; font-size: 1.6rem; line-height: 1; }
+.talle-cards dl { margin: 0; display: grid; grid-template-rows: auto auto; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0 6px; min-width: 0; }
+.talle-cards dt { color: var(--gris); font-size: .74rem; }
+.talle-cards dd { margin: 0; font-weight: 700; font-size: .9rem; white-space: nowrap; }
+
+/* Qué incluye */
+.kit .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
+.kit-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.kit-lista li { background: var(--blanco); border: 3px solid var(--tinta); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 4px; font-weight: 700; }
+.kit-lista li small { font-weight: 400; color: var(--gris); }
+.kit-lista li:nth-child(3n+1) { background: var(--rosa); }
+.kit-lista li:nth-child(3n+1) small { color: var(--tinta); }
+@media (max-width: 820px) { .kit .wrap { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 420px) { .kit-lista { grid-template-columns: 1fr; } }
+
+/* Reseñas */
+.resenas .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.resena-form { background: var(--blanco); border: 3px solid var(--tinta); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 14px; box-shadow: 6px 6px 0 var(--tinta); }
+.resena-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
+.resena-form input, .resena-form select, .resena-form textarea { border: 2.5px solid var(--tinta); border-radius: 10px; padding: 10px 12px; font: 1rem var(--body); background: var(--papel); color: var(--tinta); width: 100%; }
+.resena-form textarea { min-height: 90px; resize: vertical; }
+.btn-resena { appearance: none; align-self: flex-start; background: var(--rosa); color: var(--tinta); border: 3px solid var(--tinta); border-radius: 999px; padding: 11px 20px; font: 800 .95rem var(--body); cursor: pointer; }
+.btn-resena:hover { transform: rotate(-2deg); }
+@media (max-width: 820px) { .resenas .wrap { grid-template-columns: 1fr; gap: 24px; } }
+
+/* QR: solo visible llegando desde un cartel */
+.temporada { background: var(--amarillo); color: var(--tinta); border-bottom: 3px solid var(--tinta); text-align: center; }
+.temporada p { margin: 0; padding: 12px 0; font-weight: 800; letter-spacing: .02em; }
+.lista-resenas { display: flex; flex-direction: column; gap: 14px; }
+.tarjeta-resena { background: var(--blanco); border: 3px solid var(--tinta); border-radius: 18px; padding: 18px; box-shadow: 5px 5px 0 var(--rosa); display: flex; flex-direction: column; gap: 10px; }
+.tarjeta-resena p { margin: 0; }
+.tarjeta-resena .quien { font-weight: 800; }
+.tarjeta-resena img { width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; border: 2.5px solid var(--tinta); }
+.qr-banner { background: var(--rosa); border-bottom: 3px solid var(--tinta); }
+.qr-banner .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding-block: 18px; }
+.qr-banner p { margin: 0; font-weight: 600; }
+.qr-banner .cod { font-family: var(--display); font-size: 1.6rem; background: var(--papel); border: 3px dashed var(--tinta); border-radius: 12px; padding: 4px 14px; user-select: all; }
+.qr-banner button { appearance: none; border: 3px solid var(--tinta); background: var(--tinta); color: var(--amarillo); border-radius: 12px; padding: 10px 16px; font: 700 .95rem var(--body); cursor: pointer; }
+.pie .acceso { font-size: .8rem; color: var(--gris); text-decoration: none; }
+
+/* WhatsApp flotante */
+.flotante { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); z-index: 30; background: var(--tinta); color: var(--amarillo); border: 3px solid var(--amarillo); border-radius: 999px; padding: 12px 18px; font-weight: 800; text-decoration: none; box-shadow: 4px 4px 0 var(--rosa); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .franja div { animation-duration: 60s; }
+  .stk, .set .foto, .btn-garra, .nav-cta { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Garritas Mías, inicio"><img src="wordmark-nav.png" alt="Garritas Mías"></a>
+    <ul>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#como">Cómo pedir</a></li>
+      <li><a href="#artista">La artista</a></li>
+      <li><a href="#resenas">Reseñas</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="nav-cta" href="#armar">Quiero las mías</a>
+    <button class="nav-burger" id="burger" type="button" aria-expanded="false" aria-controls="menu-movil">☰</button>
+  </div>
+  <nav class="menu-movil" id="menu-movil" hidden>
+    <a href="#portfolio">Portfolio</a><a href="#como">Cómo pedir</a><a href="#artista">La artista</a><a href="#resenas">Reseñas</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a><a href="#armar">Quiero las mías</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <div class="temporada" id="temporada" hidden><div class="wrap"><p id="temporada-txt"></p></div></div>
+  <div class="qr-banner" id="qr-banner" hidden>
+    <div class="wrap">
+      <p>Llegaste por el cartel de <span id="qr-lugar"></span>. Tu código para un 10% OFF en tu primer pedido:</p>
+      <span class="cod" id="qr-cod"></span>
+      <button type="button" id="qr-copiar">Copiar código</button>
+    </div>
+  </div>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-txt">
+        <img class="wm" src="wordmark.png" alt="Garritas Mías">
+        <h1 class="mano">Uñas press on personalizadas, pintadas a mano para tus <u>garras</u>.</h1>
+        <h2 class="sub">Uñas postizas press on personalizadas, pintadas a mano y a tu medida. Ideales si no querés un diseño fijo: vos elegís cada detalle.</h2>
+        <a class="btn-garra" href="#armar">Quiero las mías</a>
+      </div>
+      <div class="stickers">
+        <div class="stk s1"><img src="rosa-2.jpg" alt="Set de uñas press on rosa con rayas bordó y flores en su estuche"><span>rosa vino</span></div>
+        <div class="stk s2"><img src="estrella-1.jpg" alt="Manos con uñas nude y estrellas bordó"><span>estrellas bordó</span></div>
+        <img class="paw" src="paw.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="franja" aria-hidden="true"><div>HECHAS A MANO<b>✦</b>A TU MEDIDA<b>✦</b>REUSABLES<b>✦</b>ENVÍOS A TODO EL PAÍS<b>✦</b>HECHAS A MANO<b>✦</b>A TU MEDIDA<b>✦</b>REUSABLES<b>✦</b>ENVÍOS A TODO EL PAÍS<b>✦</b>HECHAS A MANO<b>✦</b>A TU MEDIDA<b>✦</b>REUSABLES<b>✦</b>ENVÍOS A TODO EL PAÍS<b>✦</b>HECHAS A MANO<b>✦</b>A TU MEDIDA<b>✦</b>REUSABLES<b>✦</b>ENVÍOS A TODO EL PAÍS<b>✦</b></div></div>
+
+  <section class="portfolio" id="portfolio">
+    <div class="wrap">
+      <h2 class="titulo">Lo que ya pintamos</h2>
+      <p class="lead">Cada set es único. Tocá uno para verlo de cerca y pedir algo inspirado en él.</p>
+      <div class="filtros" role="group" aria-label="Filtrar por estilo">
+        <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-f="delicado" aria-pressed="false">Delicados</button>
+        <button type="button" data-f="llamativo" aria-pressed="false">Llamativos</button>
+        <button type="button" data-f="personaje" aria-pressed="false">Con personaje</button>
+      </div>
+      <div class="grilla" id="grilla">
+        <button class="set" type="button" data-set="brisa" data-tags="delicado"><div class="foto"><img src="brisa-1.jpg" alt="Set de uñas press on Brisa con lunares y flores celestes"></div><strong>Brisa</strong><small>Nude con lunares y flores celestes</small></button>
+        <button class="set" type="button" data-set="estrella" data-tags="llamativo"><div class="foto"><img src="estrella-1.jpg" alt="Set de uñas press on Estrella bordó"></div><strong>Estrella bordó</strong><small>Estrellas y detalles plateados</small></button>
+        <button class="set" type="button" data-set="arlequin" data-tags="llamativo personaje"><div class="foto"><img src="arlequin-1.jpg" alt="Set de uñas press on Arlequín con payasos en relieve"></div><strong>Arlequín</strong><small>Payasitos en relieve y rombos</small></button>
+        <button class="set" type="button" data-set="rosa" data-tags="delicado"><div class="foto"><img src="rosa-2.jpg" alt="Set de uñas press on Rosa vino con rayas y flores"></div><strong>Rosa vino</strong><small>Rayas, flores y brillitos</small></button>
+        <button class="set" type="button" data-set="ositos" data-tags="delicado personaje"><div class="foto"><img src="ositos-1.jpg" alt="Set de uñas press on Ositos con cuadrillé rosa"></div><strong>Ositos</strong><small>Cuadrillé rosa con ositos 3D</small></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="armar" id="armar">
+    <div class="wrap">
+      <div class="armar-intro">
+        <h2 class="titulo">Armá tu pedido</h2>
+        <p class="lead">Elegí forma, largo y estilo, y contanos tu diseño. Te armamos el mensaje para que nos lo mandes por Instagram junto con tu foto de referencia.</p>
+        <div class="precio"><b>$15.000</b><span>el set con kit de aplicación, o <strong>$13.500</strong> solo las uñas.</span><small>Hasta 2 dijes incluidos. Cada dije extra suma $700. Seña del 50% para confirmar.</small></div>
+      </div>
+      <form id="form-armar">
+        <fieldset><legend>Forma</legend><div class="chips">
+          <label><input type="radio" name="forma" id="fo1" value="almendra" checked><span>Almendra</span></label>
+          <label><input type="radio" name="forma" id="fo2" value="cuadrada"><span>Cuadrada</span></label>
+          <label><input type="radio" name="forma" id="fo3" value="stiletto"><span>Stiletto</span></label>
+          <label><input type="radio" name="forma" id="fo4" value="coffin"><span>Coffin</span></label>
+        </div></fieldset>
+        <fieldset><legend>Largo</legend><div class="chips">
+          <label><input type="radio" name="largo" id="la1" value="cortas"><span>Cortas</span></label>
+          <label><input type="radio" name="largo" id="la2" value="medianas" checked><span>Medianas</span></label>
+          <label><input type="radio" name="largo" id="la3" value="largas"><span>Largas</span></label>
+        </div></fieldset>
+        <fieldset><legend>Kit de aplicación</legend><div class="chips">
+          <label><input type="radio" name="kit" id="k1" value="con kit" checked><span>Con kit ($15.000)</span></label>
+          <label><input type="radio" name="kit" id="k2" value="solo uñas"><span>Solo uñas ($13.500)</span></label>
+        </div></fieldset>
+        <fieldset><legend>Cantidad de dijes</legend>
+          <div class="dijes"><button type="button" id="dij-menos" aria-label="Un dije menos">−</button><output id="dij-n" aria-live="polite">0</output><button type="button" id="dij-mas" aria-label="Un dije más">+</button><span id="dij-precio" class="nota" style="font-size:1.05rem">Total estimado: $15.000</span></div>
+        </fieldset>
+        <fieldset><legend>Estilo</legend><div class="chips">
+          <label><input type="radio" name="estilo" id="es1" value="delicado"><span>Delicado</span></label>
+          <label><input type="radio" name="estilo" id="es2" value="llamativo" checked><span>Llamativo</span></label>
+          <label><input type="radio" name="estilo" id="es3" value="con personaje"><span>Con personaje</span></label>
+        </div></fieldset>
+        <label class="campo" for="idea">Tu diseño
+          <textarea id="idea" maxlength="500" placeholder="Describilo y mandanos la foto de referencia por el chat"></textarea>
+        </label>
+        <div class="resumen">
+          <p class="aviso-copia">Al tocar el botón, <b>tu pedido se copia solo</b>. Después lo pegás en el chat de Instagram.</p>
+          <p id="resumen">Hola! Quiero un set <b>almendra</b>, <b>medianas</b>, estilo <b>llamativo</b>.</p>
+          <button class="btn-copiar" type="button" id="copiar">Copiar mi pedido <span aria-hidden="true">→</span></button>
+          <span class="estado" id="estado" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="pasos" id="como">
+    <div class="wrap">
+      <h2 class="titulo">Cómo funciona</h2>
+      <ol class="camino">
+        <li><strong>Mandanos tu diseño</strong><span>Una foto de referencia o tu idea clara, por Instagram o desde el armador de pedidos.</span></li>
+        <li><strong>Tu medida</strong><span>Te medís con cinta y regla, o nos mandás una foto de tu mano con el DNI o la SUBE al lado.</span></li>
+        <li><strong>Entrega</strong><span>Por correo a todo el país, o en mano en un punto de encuentro si estás cerca. El envío se cotiza y lo abona la clienta.</span></li>
+      </ol>
+      <div class="talles">
+        <div>
+          <h3 class="mano">¿No sabés tu talle? Medite en casa</h3>
+          <ol class="medir">
+            <li><span class="ilus"><svg viewBox="0 0 120 120" role="img" aria-label="Cinta pegada sobre la uña"><path d="M40 118 V52 a20 20 0 0 1 40 0 V118" fill="none" stroke="#272224" stroke-width="5" stroke-linecap="round"/><rect x="47" y="30" width="26" height="38" rx="13" fill="#FFFBE0" stroke="#272224" stroke-width="4"/><path d="M52 92 q8 4 16 0 M52 100 q8 4 16 0" fill="none" stroke="#272224" stroke-width="4" stroke-linecap="round"/><rect x="10" y="38" width="100" height="18" fill="#FC97C6" fill-opacity=".8" stroke="#272224" stroke-width="2"/><path d="M43 40 v14 M77 40 v14" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/></svg></span><span>Pegá una cinta sobre la superficie de tu uña.</span></li>
+            <li><span class="ilus"><svg viewBox="0 0 120 120" role="img" aria-label="Marcas en los laterales de la uña"><path d="M40 118 V52 a20 20 0 0 1 40 0 V118" fill="none" stroke="#272224" stroke-width="5" stroke-linecap="round"/><rect x="47" y="30" width="26" height="38" rx="13" fill="#FFFBE0" stroke="#272224" stroke-width="4"/><path d="M52 92 q8 4 16 0 M52 100 q8 4 16 0" fill="none" stroke="#272224" stroke-width="4" stroke-linecap="round"/><rect x="10" y="38" width="100" height="18" fill="#FC97C6" fill-opacity=".8" stroke="#272224" stroke-width="2"/><path d="M47 47 H73" stroke="#272224" stroke-width="3.5" stroke-linecap="round"/><path d="M47 39 v16 M73 39 v16" stroke="#C9468A" stroke-width="4" stroke-linecap="round"/></svg></span><span>Marcá los dos laterales de la uña sobre la cinta.</span></li>
+            <li><span class="ilus"><svg viewBox="0 0 120 120" role="img" aria-label="Cinta pegada sobre una regla para medir"><rect x="10" y="34" width="100" height="18" fill="#FC97C6" fill-opacity=".8" stroke="#272224" stroke-width="2"/><path d="M28 36 v14 M58 36 v14" stroke="#C9468A" stroke-width="4" stroke-linecap="round"/><rect x="12" y="60" width="96" height="30" rx="3" fill="#FFFBE0" stroke="#272224" stroke-width="3.5"/><path d="M18 62 v10" stroke="#272224" stroke-width="2.5"/><path d="M28 62 v6" stroke="#272224" stroke-width="2.5"/><path d="M38 62 v10" stroke="#272224" stroke-width="2.5"/><path d="M48 62 v6" stroke="#272224" stroke-width="2.5"/><path d="M58 62 v10" stroke="#272224" stroke-width="2.5"/><path d="M68 62 v6" stroke="#272224" stroke-width="2.5"/><path d="M78 62 v10" stroke="#272224" stroke-width="2.5"/><path d="M88 62 v6" stroke="#272224" stroke-width="2.5"/><path d="M98 62 v10" stroke="#272224" stroke-width="2.5"/><text x="16" y="86" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#272224">0</text></svg></span><span>Pegá la cinta en una superficie plana y medí con una regla desde el 0.</span></li>
+          </ol>
+          <p class="repetir">Repetí el paso en cada uña de ambas manos.</p>
+          <p class="pista">¿No tenés regla? Mandanos una foto de tu mano con el DNI o la SUBE al lado y la medimos nosotras.</p>
+        </div>
+        <div>
+          <h3 class="mano">Talles de referencia</h3>
+          <div class="talle-cards">
+            <div><b>S</b><dl><dt>Pulgar</dt><dd>15 mm</dd><dt>Índice</dt><dd>11 mm</dd><dt>Medio</dt><dd>12 mm</dd><dt>Anular</dt><dd>11 mm</dd><dt>Meñique</dt><dd>8 mm</dd></dl></div>
+            <div><b>M</b><dl><dt>Pulgar</dt><dd>16 mm</dd><dt>Índice</dt><dd>12 mm</dd><dt>Medio</dt><dd>13 mm</dd><dt>Anular</dt><dd>12 mm</dd><dt>Meñique</dt><dd>9 mm</dd></dl></div>
+            <div><b>L</b><dl><dt>Pulgar</dt><dd>17 mm</dd><dt>Índice</dt><dd>13 mm</dd><dt>Medio</dt><dd>14 mm</dd><dt>Anular</dt><dd>13 mm</dd><dt>Meñique</dt><dd>10 mm</dd></dl></div>
+          </div>
+          <p class="pista">Medidas aproximadas del ancho de cada uña.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="kit" id="incluye">
+    <div class="wrap">
+      <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+        <h2 class="titulo">Qué incluye tu pedido</h2>
+        <p class="lead">Todo lo que necesitás para ponértelas en casa, sin ir a un salón. Si ya tenés tus herramientas, podés pedir solo las uñas por $13.500.</p>
+      </div>
+      <ul class="kit-lista">
+        <li>Tu set de uñas<small>Pintado a mano y a tu medida.</small></li>
+        <li>Pegamento<small>El indicado para tus uñas.</small></li>
+        <li>Lima<small>Para limar el borde libre y adaptar la zona de la cutícula de tus press on.</small></li>
+        <li>Lima buffer<small>Para quitar el brillo de tu uña y que agarren mejor.</small></li>
+        <li>Palito de naranjo<small>Para empujar la cutícula.</small></li>
+        <li>Toallita con alcohol<small>Para higienizar y limpiar el polvillo después de limar.</small></li>
+        <li>Tarjeta con los pasos<small>Cómo ponértelas y cómo sacártelas.</small></li>
+        <li>Aceite de cutícula<small>Para hidratar y dejar tus manos prolijas.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="artista" id="artista">
+    <div class="wrap">
+      <div class="pola"><video id="mesa-video" src="mesa.mp4" poster="mesa-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Stop motion de la mesa de trabajo de Garritas Mías armándose"></video><button class="sonido" type="button" id="sonido">Activar sonido</button><span>mi mesa de trabajo</span></div>
+      <div class="artista-txt">
+        <h2 class="mano">Hola, soy Stefy y pinto <u>garritas</u> a mano.</h2>
+        <p>Garritas nace de mi amor por el arte y las ganas de llevar mi creatividad a otro lugar. Así surgieron mis press on: pequeñas obras de arte para llevar en tus manos y expresar tu estilo, tu esencia y tu personalidad.</p>
+        <span class="firma">con cariño, Stefy</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="resenas" id="resenas">
+    <div class="wrap">
+      <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+        <h2 class="titulo">Reseñas</h2>
+        <div class="lista-resenas" id="lista-resenas" hidden></div>
+        <div class="vacio" id="resenas-vacio">
+          <h3 class="mano" style="margin:0;font-size:1.6rem">Acá van a ir sus garritas.</h3>
+          <p>Todavía no hay reseñas publicadas. Si ya recibiste tu set, contanos qué te pareció y aparece acá cuando Stefy la apruebe.</p>
+          <a class="btn-etiqueta" href="https://instagram.com/garritas.mias" target="_blank" rel="noopener">También podés etiquetar a @garritas.mias</a>
+        </div>
+      </div>
+      <form class="resena-form" id="form-resena" name="resena" method="POST" data-netlify="true" netlify-honeypot="trampa" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="form-name" value="resena"><p hidden><label>No completar <input name="trampa" tabindex="-1" autocomplete="off"></label></p>
+        <h3 class="mano" style="margin:0;font-size:1.5rem">Dejá tu reseña</h3>
+        <label for="r-nombre">Tu nombre<input id="r-nombre" name="nombre" autocomplete="given-name" required maxlength="60"></label>
+        <label for="r-texto">Tu reseña<textarea id="r-texto" name="texto" required maxlength="600"></textarea></label>
+        <label for="r-foto">Foto de tus uñas (opcional)<input id="r-foto" name="foto" type="file" accept="image/*"></label>
+        <button class="btn-resena" type="submit">Enviar reseña</button>
+        <p class="form-estado" id="resena-estado" aria-live="polite" style="margin:0"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="faq" id="preguntas">
+    <div class="wrap">
+      <div>
+        <h2 class="titulo">Preguntas</h2>
+        <p class="lead">Lo que más nos preguntan antes de pedir.</p>
+      </div>
+      <div>
+        <details><summary>¿Cuánto sale un set?</summary><p>$15.000 el set con kit de aplicación, o $13.500 solo las uñas. Los dos incluyen hasta 2 dijes, y cada dije extra suma $700. El envío por correo se cotiza aparte.</p></details>
+        <details><summary>¿Cómo se paga?</summary><p>Con una seña del 50% confirmás tu pedido, y el 50% restante se abona antes del envío. Si retirás en un punto de encuentro, lo pagás en el momento. Aceptamos transferencia, Mercado Pago y efectivo.</p></details>
+        <details><summary>¿Cuánto tarda mi pedido?</summary><p>La elaboración lleva entre 3 y 5 días desde que confirmás tu diseño, tus medidas y la seña. Después se suma lo que tarde el correo, si es por envío.</p></details>
+        <details><summary>¿Cuánto duran puestas?</summary><p>Con una correcta aplicación, entre 2 y 2 semanas y media. Con tu pedido van todos los pasos para ponerlas y sacarlas.</p></details>
+        <details><summary>¿Se pueden reusar?</summary><p>Sí. Si las sacás con cuidado, las podés volver a poner las veces que quieras.</p></details>
+        <details><summary>¿Cómo me las pongo?</summary><p>Limá suave el brillo de tu uña, poné el pegamento y presioná cada una unos 30 segundos. Con cada set va una tarjeta con los pasos.</p></details>
+        <details><summary>¿Cómo me las saco sin dañar mi uña?</summary><p>Remojalas unos minutos en agua tibia con jabón y un poco de aceite, y levantalas de a poco. Nunca a la fuerza.</p></details>
+        <details><summary>¿Hacen envíos?</summary><p>Sí, enviamos por correo a toda Argentina. El envío se cotiza según tu ubicación y lo abona la clienta. Si estás cerca, también podés coordinar un punto de encuentro: consultanos dónde estamos.</p></details>
+        <details><summary>¿Qué viene en el pedido?</summary><p>Tu set, pegamento, lima, lima buffer, palito de naranjo, una toallita con alcohol, aceite de cutícula y una tarjeta con los pasos para ponerlas y sacarlas.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <div class="wrap">
+      <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+        <h2 class="titulo">Hablemos</h2>
+        <p class="lead">Para pedidos, consultas o colaboraciones. Respondemos más rápido por Instagram.</p>
+        <ul class="canales">
+          <li><span>Instagram</span><a href="https://instagram.com/garritas.mias" target="_blank" rel="noopener">@garritas.mias</a></li>
+          <li><span>WhatsApp</span><a href="https://wa.me/5492233053220" target="_blank" rel="noopener">+54 9 223 305-3220</a></li>
+          <li><span>Mail</span><a href="mailto:Son.Garritas@gmail.com">Son.Garritas@gmail.com</a></li>
+          <li><span>Entregas</span><span>Correo a todo el país o punto de encuentro</span></li>
+        </ul>
+      </div>
+      <form id="form-contacto" name="consulta" method="POST" data-netlify="true" netlify-honeypot="trampa" novalidate>
+        <input type="hidden" name="form-name" value="consulta"><p hidden><label>No completar <input name="trampa" tabindex="-1" autocomplete="off"></label></p>
+        <label for="c-nombre">Tu nombre<input id="c-nombre" name="nombre" autocomplete="name" required maxlength="60"></label>
+        <label for="c-contacto">Instagram o WhatsApp<input id="c-contacto" name="contacto" required maxlength="80" placeholder="@tuusuario o tu número"></label>
+        <label for="c-motivo">Motivo
+          <select id="c-motivo" name="motivo"><option>Quiero un set</option><option>Tengo una consulta</option><option>Colaboración o marca</option></select>
+        </label>
+        <label for="c-msj">Mensaje<textarea id="c-msj" name="mensaje" required maxlength="1000"></textarea></label>
+        <button class="btn-enviar" type="submit">Enviar consulta</button>
+        <p class="form-estado" id="form-estado" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <img src="wordmark.png" alt="Garritas Mías">
+    <nav aria-label="Pie de página"><a href="#portfolio">Portfolio</a><a href="#como">Cómo pedir</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a><a href="https://instagram.com/garritas.mias" target="_blank" rel="noopener">Instagram</a></nav>
+    <small>Garritas Mías · Uñas press on personalizadas pintadas a mano · Envíos a todo el país</small>
+  </div>
+</footer>
+
+<a class="flotante" href="https://wa.me/5492233053220" target="_blank" rel="noopener">WhatsApp</a>
+
+<div class="copiado" id="copiado" hidden role="dialog" aria-modal="true" aria-labelledby="copiado-titulo">
+  <div class="copiado-caja">
+    <h3 class="mano" id="copiado-titulo">¡Tu pedido ya está copiado!</h3>
+    <ol>
+      <li>Tocá <b>Abrir el chat de Instagram</b>.</li>
+      <li>Mantené apretado en el chat y elegí <b>Pegar</b>.</li>
+      <li>Mandá también la foto de tu diseño.</li>
+    </ol>
+    <textarea id="copiado-texto" readonly aria-label="Tu pedido"></textarea>
+    <a class="btn-chat" id="btn-chat" href="https://ig.me/m/garritas.mias" target="_blank" rel="noopener">Abrir el chat de Instagram</a>
+    <button class="copiado-cerrar" type="button" id="copiado-cerrar">Volver a la web</button>
+  </div>
+</div>
+
+<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-labelledby="visor-titulo">
+  <div class="visor-caja">
+    <div class="visor-fotos" id="visor-fotos"></div>
+    <div class="visor-txt">
+      <button class="visor-cerrar" type="button" id="visor-cerrar">Cerrar</button>
+      <h3 class="mano" id="visor-titulo"></h3>
+      <p id="visor-desc"></p>
+      <p class="pista" id="visor-pista"></p>
+      <button class="btn-asi" type="button" id="visor-pedir">Quiero uno así</button>
+    </div>
+  </div>
+</div>
+
+<script src="supabase.js"></script>
+<script src="config.js"></script>
+<script>
+(function () {
+  var sets = {
+    brisa: { t: "Brisa", d: "Base nude con lunares celestes, flores y rayitas. Fresco y delicado, para todos los días.", f: ["brisa-1.jpg"], estilo: "delicado" },
+    estrella: { t: "Estrella bordó", d: "Nude con estrellas bordó y detalles plateados en relieve. Para cuando querés que te las miren.", f: ["estrella-1.jpg", "estrella-2.jpg", "estrella-3.jpg"], estilo: "llamativo" },
+    rosa: { t: "Rosa vino", d: "Rosa empolvado con rayas bordó, flores y brillitos. Romántico sin ser aburrido.", f: ["rosa-2.jpg"], estilo: "delicado" },
+    arlequin: { t: "Arlequín", d: "Rombos, lunares, estrellas y payasitos en relieve, pintados a mano uno por uno.", f: ["arlequin-1.jpg"], estilo: "con personaje" },
+    ositos: { t: "Ositos", d: "Cuadrillé rosa nude con ositos y conejitos 3D. Tierno y prolijo.", f: ["ositos-1.jpg"], estilo: "con personaje" }
+  };
+  var IG = "https://ig.me/m/garritas.mias";
+  var codigo = "";
+  var lugares = { medicina: "Medicina", derecho: "Derecho", economicas: "Económicas", humanidades: "Humanidades", ingenieria: "Ingeniería", psicologia: "Psicología", arquitectura: "Arquitectura", exactas: "Exactas", salud: "Ciencias de la Salud" };
+  var m = (location.hash || "").match(/^#qr-([a-z]+)$/);
+  if (m && lugares[m[1]]) {
+    codigo = m[1].toUpperCase() + "10";
+    document.getElementById("qr-lugar").textContent = lugares[m[1]];
+    document.getElementById("qr-cod").textContent = codigo;
+    document.getElementById("qr-banner").hidden = false;
+    document.getElementById("qr-copiar").addEventListener("click", function () {
+      var btn = this; try { navigator.clipboard.writeText(codigo).then(function () { btn.textContent = "Copiado"; }, function () { btn.textContent = "Mantené apretado el código"; }); } catch (e) { btn.textContent = "Mantené apretado el código"; }
+    });
+  }
+
+  // Menú móvil
+  var burger = document.getElementById("burger"), menu = document.getElementById("menu-movil");
+  burger.addEventListener("click", function () { var open = menu.hidden; menu.hidden = !open; burger.setAttribute("aria-expanded", String(open)); });
+  menu.addEventListener("click", function (e) { if (e.target.tagName === "A") { menu.hidden = true; burger.setAttribute("aria-expanded", "false"); } });
+
+  // Filtros
+  var botones = document.querySelectorAll(".filtros button");
+  botones.forEach(function (b) {
+    b.addEventListener("click", function () {
+      botones.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      var f = b.dataset.f;
+      document.querySelectorAll(".set").forEach(function (s) { s.classList.toggle("oculto", f !== "todos" && s.dataset.tags.split(" ").indexOf(f) < 0); });
+    });
+  });
+
+  // Visor
+  var visor = document.getElementById("visor"), actual = null, ultimoFoco = null;
+  function abrir(id, origen) {
+    var s = sets[id]; actual = id; ultimoFoco = origen;
+    document.getElementById("visor-titulo").textContent = s.t;
+    document.getElementById("visor-desc").textContent = s.d;
+    document.getElementById("visor-pista").textContent = s.f.length > 1 ? "Deslizá las fotos para ver más." : "";
+    document.getElementById("visor-fotos").innerHTML = s.f.map(function (src) { return '<img src="' + src + '" alt="' + s.t + '">'; }).join("");
+    visor.hidden = false; document.getElementById("visor-cerrar").focus();
+  }
+  function cerrar() { visor.hidden = true; if (ultimoFoco) ultimoFoco.focus(); }
+  document.querySelectorAll(".set").forEach(function (b) { b.addEventListener("click", function () { abrir(b.dataset.set, b); }); });
+  document.getElementById("visor-cerrar").addEventListener("click", cerrar);
+  visor.addEventListener("click", function (e) { if (e.target === visor) cerrar(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !visor.hidden) cerrar(); });
+
+  // Armá tu pedido
+  var form = document.getElementById("form-armar"), out = document.getElementById("resumen"), estado = document.getElementById("estado"), inspirado = "";
+  var dijes = 0;
+  function precio() { var k = form.querySelector('input[name="kit"]:checked'); return (k && k.value === "solo uñas" ? 13500 : 15000) + Math.max(0, dijes - 2) * 700; }
+  function fmt(n) { return "$" + n.toLocaleString("es-AR"); }
+  function setDijes(n) { dijes = Math.max(0, Math.min(20, n)); document.getElementById("dij-n").textContent = dijes; document.getElementById("dij-precio").textContent = "Total estimado: " + fmt(precio()); pintar(); }
+  document.getElementById("dij-mas").addEventListener("click", function () { setDijes(dijes + 1); });
+  document.getElementById("dij-menos").addEventListener("click", function () { setDijes(dijes - 1); });
+  var vid = document.getElementById("mesa-video"), son = document.getElementById("sonido");
+  son.addEventListener("click", function () { vid.muted = !vid.muted; if (!vid.muted) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); } son.textContent = vid.muted ? "Activar sonido" : "Silenciar"; });
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { vid.removeAttribute("autoplay"); vid.pause(); vid.controls = true; }
+  function val(n) { var el = form.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : ""; }
+  function texto(html) {
+    var b = function (x) { return html ? "<b>" + x + "</b>" : x; };
+    var t = "Hola! Quiero un set " + b(val("forma")) + ", " + b(val("largo")) + ", estilo " + b(val("estilo")) + ".";
+    t += " Lo quiero " + b(val("kit")) + ".";
+    if (dijes > 0) t += " Con " + b(dijes + (dijes === 1 ? " dije" : " dijes")) + ".";
+    t += " Total estimado: " + b(fmt(precio())) + ".";
+    if (inspirado) t += " Inspirado en " + b(inspirado) + ".";
+    var idea = document.getElementById("idea").value.trim();
+    if (idea) t += " Mi diseño: " + (html ? idea.replace(/[<>&]/g, "") : idea);
+    if (codigo) t += " Tengo el código " + b(codigo) + ".";
+    return t;
+  }
+  function pintar() { out.innerHTML = texto(true); var dp = document.getElementById("dij-precio"); if (dp) dp.textContent = "Total estimado: " + fmt(precio()); }
+  form.addEventListener("input", pintar); form.addEventListener("change", pintar);
+  document.getElementById("visor-pedir").addEventListener("click", function () {
+    var s = sets[actual]; inspirado = s.t;
+    var r = form.querySelector('input[name="estilo"][value="' + s.estilo + '"]'); if (r) r.checked = true;
+    pintar(); cerrar(); document.getElementById("armar").scrollIntoView();
+  });
+  document.getElementById("copiar").addEventListener("click", function () {
+    var t = texto(false);
+    var caja = document.getElementById("copiado"), tit = document.getElementById("copiado-titulo"), area = document.getElementById("copiado-texto");
+    area.value = t;
+    var mostrar = function (ok) {
+      tit.textContent = ok ? "¡Tu pedido ya está copiado!" : "Copiá tu pedido";
+      estado.textContent = ok ? "Pedido copiado." : "";
+      caja.hidden = false;
+      if (!ok) { area.focus(); area.select(); } else { document.getElementById("btn-chat").focus(); }
+    };
+    try { navigator.clipboard.writeText(t).then(function () { mostrar(true); }, function () { mostrar(false); }); } catch (e) { mostrar(false); }
+  });
+
+  pintar();
+  document.getElementById("copiado-cerrar").addEventListener("click", function () { document.getElementById("copiado").hidden = true; });
+  // ===== Base de datos =====
+  var db = null;
+  try { db = window.supabase.createClient(window.GM.url, window.GM.clave, { auth: { persistSession: false, autoRefreshToken: false } }); } catch (e) {}
+
+  // Banner de temporada (lo prende Stefy desde el panel)
+  if (db) db.from("config").select("banner_on, banner_texto").eq("id", 1).maybeSingle().then(function (r) {
+    if (r.data && r.data.banner_on && r.data.banner_texto) {
+      document.getElementById("temporada-txt").textContent = r.data.banner_texto;
+      document.getElementById("temporada").hidden = false;
+    }
+  });
+
+  // Reseñas aprobadas
+  if (db) db.from("resenas").select("nombre, texto, foto, creado").eq("estado", "aprobada").order("creado", { ascending: false }).limit(12).then(function (r) {
+    var lista = r.data || [];
+    if (!lista.length) return;
+    var caja = document.getElementById("lista-resenas");
+    var fotos = lista.filter(function (x) { return x.foto; }).map(function (x) { return x.foto; });
+    var pintarLista = function (urls) {
+      lista.forEach(function (x) {
+        var art = document.createElement("article"); art.className = "tarjeta-resena";
+        if (x.foto && urls[x.foto]) { var im = document.createElement("img"); im.src = urls[x.foto]; im.alt = "Garritas de " + x.nombre; im.loading = "lazy"; art.appendChild(im); }
+        var p = document.createElement("p"); p.textContent = "“" + x.texto + "”"; art.appendChild(p);
+        var q = document.createElement("p"); q.className = "quien"; q.textContent = x.nombre; art.appendChild(q);
+        caja.appendChild(art);
+      });
+      caja.hidden = false;
+      document.getElementById("resenas-vacio").querySelector("h3").textContent = "¿Ya tenés tus garritas?";
+      document.getElementById("resenas-vacio").querySelector("p").textContent = "Contanos qué te parecieron y tu reseña aparece acá cuando Stefy la apruebe.";
+    };
+    if (!fotos.length) return pintarLista({});
+    db.storage.from("resenas").createSignedUrls(fotos, 60 * 60 * 6).then(function (u) {
+      var m = {}; (u.data || []).forEach(function (y) { if (y.signedUrl && y.path) m[y.path] = y.signedUrl; }); pintarLista(m);
+    }, function () { pintarLista({}); });
+  });
+
+  // Visita desde un cartel QR
+  if (db && codigo) { var lugarQR = (location.hash || "").replace("#qr-", ""); db.rpc("registrar_visita", { p_lugar: lugarQR }).then(function () {}, function () {}); }
+
+  // Pedido armado: se guarda para el panel cuando la clienta lo copia
+  var ultimoPedido = "";
+  document.getElementById("copiar").addEventListener("click", function () {
+    var t = texto(false);
+    if (!db || t === ultimoPedido) return;
+    ultimoPedido = t;
+    db.rpc("registrar_pedido", { p_detalle: t, p_total: precio(), p_codigo: codigo || null }).then(function () {}, function () {});
+  });
+
+  // ===== Protección de formularios =====
+  // Capa 1 (navegador): trampa para bots, tiempo mínimo, un envío por minuto y tres por día.
+  // Capa 2 (servidor): la base limita por IP y por día, valida largos y rechaza mensajes con links.
+  var cargada = Date.now(), enviando = false;
+  var LIMITE_DIA = 3, ESPERA = 60000, MIN_LLENADO = 4000, MAX_FOTO = 3 * 1024 * 1024;
+  var memoria = {};
+  function leer(k) { try { return JSON.parse(localStorage.getItem(k) || "[]"); } catch (e) { return memoria[k] || []; } }
+  function guardar(k, v) { memoria[k] = v; try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function controlar(id, f) {
+    var ahora = Date.now(), k = "gm-envios-" + id;
+    var lista = leer(k).filter(function (t) { return typeof t === "number" && ahora - t < 864e5; });
+    if (enviando) return "Estamos enviando, esperá un segundo.";
+    if (ahora - cargada < MIN_LLENADO) return "Esperá unos segundos y probá de nuevo.";
+    if (lista.length && ahora - lista[lista.length - 1] < ESPERA) return "Ya recibimos tu envío. Esperá un minuto para mandar otro.";
+    if (lista.length >= LIMITE_DIA) return "Llegaste al límite de envíos por hoy. Escribinos por WhatsApp o Instagram.";
+    var links = (Array.prototype.map.call(f.querySelectorAll("textarea, input[type=text], input:not([type])"), function (x) { return x.value; }).join(" ").match(/https?:\/\/|www\./gi) || []).length;
+    if (links > 1) return "Sacá los links del mensaje. Las fotos mandalas por Instagram.";
+    if (!db) return "No pudimos conectarnos. Escribinos por WhatsApp o Instagram.";
+    return "";
+  }
+  function anotar(id) { var k = "gm-envios-" + id, l = leer(k); l.push(Date.now()); guardar(k, l.slice(-10)); }
+  function recortar(f) { Array.prototype.forEach.call(f.querySelectorAll("input[maxlength], textarea[maxlength]"), function (x) { x.value = x.value.trim().slice(0, +x.getAttribute("maxlength")); }); }
+  function motivoError(e) {
+    var m = String((e && (e.message || e.error_description)) || "");
+    if (/limite/.test(m)) return "Hubo demasiados envíos desde tu conexión. Probá más tarde o escribinos por WhatsApp.";
+    if (/links/.test(m)) return "Sacá los links del mensaje. Las fotos mandalas por Instagram.";
+    return "";
+  }
+  // Copia a Netlify Forms solo para que llegue el aviso por mail
+  function avisarMail(nombreForm, datos) {
+    var b = new URLSearchParams(); b.append("form-name", nombreForm);
+    Object.keys(datos).forEach(function (k) { b.append(k, datos[k]); });
+    fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: b.toString() }).catch(function () {});
+  }
+  // Achica la foto a 1400 px y la pasa a JPG (también borra la ubicación GPS que traen las fotos del celu)
+  function prepararFoto(file) {
+    return new Promise(function (ok, mal) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var esc = Math.min(1, 1400 / Math.max(img.width, img.height)), c = document.createElement("canvas");
+        c.width = Math.round(img.width * esc); c.height = Math.round(img.height * esc);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+        c.toBlob(function (b) { b ? ok(b) : mal(new Error("foto")); }, "image/jpeg", 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); mal(new Error("foto")); };
+      img.src = url;
+    });
+  }
+  function empezar(id, f, est) {
+    if (f.trampa && f.trampa.value) return "trampa";
+    var problema = controlar(id, f);
+    if (problema) { est.textContent = problema; return "no"; }
+    enviando = true; var btn = f.querySelector('button[type="submit"]'); if (btn) btn.disabled = true;
+    est.textContent = "Enviando...";
+    return "si";
+  }
+  function terminar(f) { enviando = false; var btn = f.querySelector('button[type="submit"]'); if (btn) btn.disabled = false; }
+
+  document.getElementById("form-resena").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, est = document.getElementById("resena-estado"), OK = "Gracias. Tu reseña se publica cuando Stefy la apruebe.";
+    recortar(f);
+    if (!f.nombre.value || !f.texto.value) { est.textContent = "Completá tu nombre y tu reseña."; return; }
+    var foto = f.foto.files && f.foto.files[0];
+    if (foto && foto.size > 15 * 1024 * 1024) { est.textContent = "La foto es muy pesada. Probá con otra."; return; }
+    if (foto && !/^image\//.test(foto.type) && !/\.(jpe?g|png|webp|heic|heif)$/i.test(foto.name)) { est.textContent = "Eso no parece una foto. Probá con JPG o PNG."; return; }
+    var paso = empezar("resena", f, est);
+    if (paso === "trampa") { est.textContent = OK; f.reset(); return; }
+    if (paso !== "si") return;
+    var fotoLista = foto ? prepararFoto(foto) : Promise.resolve(null);
+    fotoLista.then(function (blob) {
+      if (blob && blob.size > MAX_FOTO) throw new Error("pesada");
+      return db.rpc("enviar_resena", { p_nombre: f.nombre.value, p_texto: f.texto.value, p_con_foto: !!blob }).then(function (r) {
+        if (r.error) throw r.error;
+        if (blob && r.data && r.data.foto) return db.storage.from("resenas").upload(r.data.foto, blob, { contentType: "image/jpeg", upsert: false }).then(function (u) { if (u.error) throw new Error("subida"); });
+      });
+    }).then(function () {
+      avisarMail("resena", { nombre: f.nombre.value, texto: f.texto.value });
+      anotar("resena"); est.textContent = OK; f.reset();
+    }).catch(function (err) {
+      var m = err && err.message;
+      est.textContent = motivoError(err) || (m === "foto" ? "No pudimos leer la foto. Probá con una en JPG o PNG." : m === "pesada" ? "La foto es muy pesada. Probá con otra." : m === "subida" ? "Tu reseña llegó, pero la foto no se pudo subir. Mandala por Instagram." : "No se pudo enviar. Probá de nuevo o escribinos por Instagram.");
+      if (m === "subida") { anotar("resena"); f.reset(); }
+    }).then(function () { terminar(f); });
+  });
+
+  document.getElementById("form-contacto").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, est = document.getElementById("form-estado"), OK = "Listo, recibimos tu consulta. Te respondemos lo antes posible.";
+    recortar(f);
+    if (!f.nombre.value || !f.contacto.value || !f.mensaje.value) { est.textContent = "Completá tu nombre, cómo contactarte y el mensaje."; return; }
+    var paso = empezar("consulta", f, est);
+    if (paso === "trampa") { est.textContent = OK; f.reset(); return; }
+    if (paso !== "si") return;
+    var datos = { nombre: f.nombre.value, contacto: f.contacto.value, motivo: f.motivo.value, mensaje: f.mensaje.value };
+    db.rpc("enviar_consulta", { p_nombre: datos.nombre, p_contacto: datos.contacto, p_motivo: datos.motivo, p_mensaje: datos.mensaje }).then(function (r) {
+      if (r.error) throw r.error;
+      avisarMail("consulta", datos);
+      anotar("consulta"); est.textContent = OK; f.reset();
+    }).catch(function (err) {
+      est.textContent = motivoError(err) || "No se pudo enviar. Probá de nuevo o escribinos por WhatsApp.";
+    }).then(function () { terminar(f); });
+  });
+})();
+</script>
+</body>
+</html>

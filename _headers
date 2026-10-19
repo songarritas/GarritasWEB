@@ -1,0 +1,22 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://ibmfufyzdvguvzghmbxo.supabase.co; media-src 'self'; connect-src 'self' https://ibmfufyzdvguvzghmbxo.supabase.co wss://ibmfufyzdvguvzghmbxo.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/netlify/*
+  X-Robots-Tag: noindex
+
+/panel*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/*.jpg
+  Cache-Control: public, max-age=604800
+/*.png
+  Cache-Control: public, max-age=604800
+/*.mp4
+  Cache-Control: public, max-age=604800

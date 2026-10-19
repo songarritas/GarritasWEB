@@ -1,0 +1,23 @@
+# Cron 2: GitHub apaga los crons de los repositorios que pasan 60 días sin cambios.
+# Este deja una marca una vez por mes para que el cron de Supabase nunca se apague.
+name: Mantener GitHub activo
+on:
+  schedule:
+    - cron: "23 12 1 * *"   # el día 1 de cada mes, 9:23 (hora Argentina)
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  marca:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dejar marca mensual
+        run: |
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .github/ultima-marca.txt
+          git config user.name "garritas-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/ultima-marca.txt
+          git commit -m "Marca mensual para mantener los crons activos [skip netlify]" || echo "Sin cambios"
+          git push

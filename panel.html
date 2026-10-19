@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de Garritas Mías</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Outfit:wght@400;600;800&display=swap">
+<style>
+:root { --amarillo: #FFF49D; --rosa: #FC97C6; --tinta: #272224; --gris: #57504F; --papel: #FFFBE0; --blanco: #FFFFFF; --linea: #e6e0cf; color-scheme: light; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--papel); color: var(--tinta); font-family: "Outfit", system-ui, sans-serif; line-height: 1.5; }
+.top { background: var(--tinta); color: var(--amarillo); padding: 14px max(16px, env(safe-area-inset-left, 0px)); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.top h1 { margin: 0; font-family: "Berkshire Swash", cursive; font-weight: 400; font-size: 1.5rem; }
+.top .der { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.top a, .top button { color: var(--rosa); font: 600 .95rem "Outfit", sans-serif; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+main { max-width: 980px; margin: 0 auto; padding: 22px max(16px, env(safe-area-inset-right, 0px)) 60px max(16px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 18px; }
+.caja { background: var(--blanco); border: 2.5px solid var(--tinta); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.login { max-width: 420px; margin: 40px auto 0; }
+.login h2 { margin: 0; font-family: "Berkshire Swash", cursive; font-weight: 400; font-size: 1.7rem; }
+label { font-weight: 700; display: flex; flex-direction: column; gap: 6px; }
+input[type=email], input[type=text], textarea, select { width: 100%; border: 2px solid var(--tinta); border-radius: 10px; padding: 10px 12px; font: 1rem "Outfit", sans-serif; background: var(--papel); color: var(--tinta); }
+textarea { min-height: 70px; resize: vertical; }
+.btn { appearance: none; border: 2.5px solid var(--tinta); background: var(--amarillo); color: var(--tinta); border-radius: 12px; padding: 10px 16px; font: 800 1rem "Outfit", sans-serif; cursor: pointer; }
+.btn.chico { padding: 6px 12px; font-size: .9rem; font-weight: 700; border-width: 2px; border-radius: 10px; }
+.btn.neutro { background: var(--papel); }
+.btn.peligro { background: var(--blanco); color: #9b1c3a; border-color: #9b1c3a; }
+.btn:disabled { opacity: .5; cursor: default; }
+.msg { margin: 0; font-weight: 600; min-height: 1.4em; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tabs button { appearance: none; border: 2.5px solid var(--tinta); background: var(--blanco); color: var(--tinta); border-radius: 12px; padding: 8px 14px; font: 700 .95rem "Outfit", sans-serif; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--tinta); color: var(--amarillo); }
+.tabs .n { background: var(--rosa); color: var(--tinta); border-radius: 999px; padding: 0 7px; margin-left: 6px; font-size: .8rem; }
+.tabs .n:empty { display: none; }
+.panel { display: flex; flex-direction: column; gap: 12px; }
+.card { background: var(--blanco); border: 2.5px solid var(--tinta); border-radius: 14px; padding: 16px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: start; }
+.card.hecha { opacity: .6; }
+.card p { margin: 0; overflow-wrap: anywhere; }
+.card .meta { color: var(--gris); font-size: .88rem; }
+.card .acc { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+.card img { max-width: 220px; width: 100%; border-radius: 10px; border: 2px solid var(--tinta); display: block; }
+.chip { display: inline-block; font-size: .78rem; font-weight: 700; border: 2px solid var(--tinta); border-radius: 999px; padding: 1px 8px; margin-right: 6px; background: var(--rosa); }
+.vacio { color: var(--gris); margin: 0; padding: 8px 2px; }
+.filtro { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-weight: 600; }
+.filtro select { width: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--blanco); font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 12px; border-bottom: 1.5px solid var(--linea); text-align: left; white-space: nowrap; }
+th { font-size: .85rem; color: var(--gris); }
+.scroll { overflow-x: auto; border: 2.5px solid var(--tinta); border-radius: 14px; }
+.switch { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.switch input { width: 22px; height: 22px; accent-color: var(--tinta); }
+.vista { background: var(--amarillo); border: 2.5px solid var(--tinta); border-radius: 10px; padding: 10px; text-align: center; font-weight: 800; }
+@media (max-width: 640px) { .card { grid-template-columns: 1fr; } .card .acc { justify-content: flex-start; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Panel de Garritas</h1>
+  <div class="der"><a href="/" target="_blank" rel="noopener">Ver la web</a><button type="button" id="salir" hidden>Salir</button></div>
+</header>
+
+<main>
+  <!-- Entrar -->
+  <section class="caja login" id="v-login" hidden>
+    <h2>Hola, Stefy</h2>
+    <form id="f-login" style="display:flex;flex-direction:column;gap:12px">
+      <label>Tu mail<input type="email" id="l-mail" autocomplete="username" required maxlength="120"></label>
+      <label>Contraseña<input type="password" id="l-pass" autocomplete="current-password" required maxlength="72"></label>
+      <p class="msg" id="l-msg" aria-live="polite"></p>
+      <button class="btn" type="submit" id="l-btn">Entrar</button>
+      <button class="btn neutro chico" type="button" id="l-olvide" style="align-self:flex-start">Me olvidé la contraseña</button>
+    </form>
+  </section>
+
+  <section class="caja login" id="v-clave" hidden>
+    <h2>Elegí tu contraseña</h2>
+    <p style="margin:0">Con esta contraseña vas a entrar al panel. Usá al menos 10 caracteres.</p>
+    <form id="f-clave" style="display:flex;flex-direction:column;gap:12px">
+      <input type="text" autocomplete="username" id="c-user" hidden>
+      <label>Contraseña nueva<input type="password" id="c-pass" autocomplete="new-password" required minlength="10" maxlength="72"></label>
+      <label>Repetila<input type="password" id="c-pass2" autocomplete="new-password" required minlength="10" maxlength="72"></label>
+      <p class="msg" id="c-msg" aria-live="polite"></p>
+      <button class="btn" type="submit" id="c-btn">Guardar contraseña</button>
+    </form>
+  </section>
+
+  <section class="caja" id="v-cargando"><p class="msg">Cargando...</p></section>
+
+  <section class="caja" id="v-sinpermiso" hidden>
+    <p class="msg">Este mail no tiene acceso al panel.</p>
+    <button class="btn neutro" type="button" id="salir2">Salir</button>
+  </section>
+
+  <!-- Panel -->
+  <div id="v-panel" hidden style="display:flex;flex-direction:column;gap:18px">
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-t="pedidos">Pedidos<span class="n" id="n-pedidos"></span></button>
+      <button role="tab" aria-selected="false" data-t="consultas">Consultas<span class="n" id="n-consultas"></span></button>
+      <button role="tab" aria-selected="false" data-t="resenas">Reseñas<span class="n" id="n-resenas"></span></button>
+      <button role="tab" aria-selected="false" data-t="temporada">Banner</button>
+      <button role="tab" aria-selected="false" data-t="qr">Carteles QR</button>
+    </div>
+    <p class="msg" id="p-msg" aria-live="polite"></p>
+
+    <section class="panel" id="pedidos">
+      <p class="vacio" style="padding:0">Pedidos que las clientas armaron y copiaron en la web. El pedido real te llega por Instagram o WhatsApp.</p>
+      <div class="filtro"><label style="flex-direction:row;align-items:center;gap:8px">Mostrar
+        <select id="fil-pedidos"><option value="activos">Activos</option><option value="todos">Todos</option></select></label></div>
+      <div id="l-pedidos" class="panel"></div>
+    </section>
+
+    <section class="panel" id="consultas" hidden><div id="l-consultas" class="panel"></div></section>
+
+    <section class="panel" id="resenas" hidden>
+      <div class="filtro"><label style="flex-direction:row;align-items:center;gap:8px">Mostrar
+        <select id="fil-resenas"><option value="pendiente">Por aprobar</option><option value="aprobada">Publicadas</option><option value="rechazada">Rechazadas</option></select></label></div>
+      <div id="l-resenas" class="panel"></div>
+    </section>
+
+    <section class="panel" id="temporada" hidden>
+      <div class="caja">
+        <label class="switch"><input type="checkbox" id="t-on"> Mostrar el banner en la web</label>
+        <label>Texto del banner<input type="text" id="t-txt" maxlength="140"></label>
+        <p class="vacio" style="padding:0">Así se ve arriba de la web:</p>
+        <div class="vista" id="t-vista"></div>
+        <div><button class="btn" type="button" id="t-guardar">Guardar</button></div>
+      </div>
+    </section>
+
+    <section class="panel" id="qr" hidden>
+      <p class="vacio" style="padding:0">Cuántas personas entraron desde cada cartel. Cada persona cuenta una vez por día.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Cartel</th><th>Link del QR</th><th>Hoy</th><th>Últimos 7 días</th><th>Total</th><th>Activo</th></tr></thead>
+        <tbody id="l-qr"></tbody>
+      </table></div>
+    </section>
+  </div>
+</main>
+
+<script src="supabase.js"></script>
+<script src="config.js"></script>
+<script>
+(function () {
+  var db = window.supabase.createClient(window.GM.url, window.GM.clave, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
+  var $ = function (id) { return document.getElementById(id); };
+  var vistas = ["v-login", "v-clave", "v-cargando", "v-sinpermiso", "v-panel"];
+  function ver(id) { vistas.forEach(function (v) { $(v).hidden = v !== id; }); $("salir").hidden = id !== "v-panel"; }
+  function el(tag, props, hijos) {
+    var e = document.createElement(tag);
+    Object.keys(props || {}).forEach(function (k) { if (k === "texto") e.textContent = props[k]; else if (k === "clase") e.className = props[k]; else e.setAttribute(k, props[k]); });
+    (hijos || []).forEach(function (h) { if (h) e.appendChild(h); });
+    return e;
+  }
+  function fecha(s) { var d = new Date(s); return d.toLocaleDateString("es-AR", { day: "numeric", month: "short" }) + " " + d.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" }); }
+  function aviso(t) { $("p-msg").textContent = t; if (t) setTimeout(function () { if ($("p-msg").textContent === t) $("p-msg").textContent = ""; }, 4000); }
+  function boton(txt, clase, fn) { var b = el("button", { type: "button", clase: "btn chico " + (clase || ""), texto: txt }); b.addEventListener("click", function () { b.disabled = true; Promise.resolve(fn()).then(function () { b.disabled = false; }); }); return b; }
+  function revisar(r) { if (r.error) { aviso("No se pudo guardar. Probá de nuevo."); throw r.error; } return r; }
+
+  // ---------- Entrar ----------
+  var fallos = 0, bloqueadoHasta = 0;
+  $("f-login").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var mail = $("l-mail").value.trim(), pass = $("l-pass").value;
+    if (!mail || !pass) return;
+    if (Date.now() < bloqueadoHasta) { $("l-msg").textContent = "Esperá un minuto antes de volver a probar."; return; }
+    $("l-btn").disabled = true; $("l-msg").textContent = "Entrando...";
+    db.auth.signInWithPassword({ email: mail, password: pass }).then(function (r) {
+      if (!r.error) { fallos = 0; $("l-msg").textContent = ""; $("l-pass").value = ""; return; }
+      fallos++;
+      if (fallos >= 5) { bloqueadoHasta = Date.now() + 60000; fallos = 0; }
+      $("l-msg").textContent = /rate|too many|seconds/i.test(r.error.message) ? "Demasiados intentos. Esperá unos minutos." : "Mail o contraseña incorrectos.";
+    }).then(function () { $("l-btn").disabled = false; });
+  });
+  $("l-olvide").addEventListener("click", function () {
+    var mail = $("l-mail").value.trim();
+    if (!mail) { $("l-msg").textContent = "Escribí tu mail arriba y tocá de nuevo."; return; }
+    $("l-olvide").disabled = true;
+    db.auth.resetPasswordForEmail(mail, { redirectTo: location.origin + "/panel" }).then(function (r) {
+      $("l-msg").textContent = r.error && /rate|seconds|limit/i.test(r.error.message)
+        ? "Pediste muchos mails seguidos. Esperá un rato y probá de nuevo."
+        : "Si ese mail tiene acceso, te llegó un link para crear una contraseña nueva.";
+    }).then(function () { setTimeout(function () { $("l-olvide").disabled = false; }, 60000); });
+  });
+  // Primera vez (invitación) o contraseña olvidada: elegir contraseña
+  var pideClave = /type=(invite|recovery)/.test(location.hash);
+  $("f-clave").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var a = $("c-pass").value, b = $("c-pass2").value;
+    if (a.length < 10) { $("c-msg").textContent = "Tiene que tener al menos 10 caracteres."; return; }
+    if (a !== b) { $("c-msg").textContent = "Las dos contraseñas no coinciden."; return; }
+    $("c-btn").disabled = true; $("c-msg").textContent = "Guardando...";
+    db.auth.updateUser({ password: a }).then(function (r) {
+      $("c-btn").disabled = false;
+      if (r.error) { $("c-msg").textContent = /weak|short|pwned/i.test(r.error.message) ? "Esa contraseña es muy fácil. Probá con otra." : "No se pudo guardar. Probá de nuevo."; return; }
+      pideClave = false; $("c-pass").value = ""; $("c-pass2").value = ""; abierto = false; abrirPanel();
+    });
+  });
+  function salir() { db.auth.signOut().then(function () { location.replace("/panel"); }); }
+  $("salir").addEventListener("click", salir); $("salir2").addEventListener("click", salir);
+
+  // ---------- Pestañas ----------
+  document.querySelectorAll(".tabs button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".tabs button").forEach(function (x) { x.setAttribute("aria-selected", String(x === b)); });
+      ["pedidos", "consultas", "resenas", "temporada", "qr"].forEach(function (p) { $(p).hidden = p !== b.dataset.t; });
+    });
+  });
+
+  // ---------- Pedidos ----------
+  var ESTADOS = ["nuevo", "en charla", "señado", "entregado", "descartado"];
+  function cargarPedidos() {
+    var q = db.from("pedidos").select("*").order("creado", { ascending: false }).limit(200);
+    if ($("fil-pedidos").value === "activos") q = q.in("estado", ["nuevo", "en charla", "señado"]);
+    return q.then(function (r) {
+      var caja = $("l-pedidos"); caja.replaceChildren();
+      var lista = r.data || [];
+      $("n-pedidos").textContent = lista.filter(function (x) { return x.estado === "nuevo"; }).length || "";
+      if (!lista.length) { caja.appendChild(el("p", { clase: "vacio", texto: "Todavía no hay pedidos." })); return; }
+      lista.forEach(function (x) {
+        var sel = el("select", { "aria-label": "Estado del pedido" });
+        ESTADOS.forEach(function (s) { var o = el("option", { value: s, texto: s.charAt(0).toUpperCase() + s.slice(1) }); if (s === x.estado) o.selected = true; sel.appendChild(o); });
+        sel.addEventListener("change", function () { db.from("pedidos").update({ estado: sel.value }).eq("id", x.id).then(revisar).then(function () { aviso("Pedido actualizado."); cargarPedidos(); }); });
+        caja.appendChild(el("div", { clase: "card" + (x.estado === "entregado" || x.estado === "descartado" ? " hecha" : "") }, [
+          el("div", {}, [
+            el("p", {}, [x.estado === "nuevo" ? el("span", { clase: "chip", texto: "Nuevo" }) : null, el("b", { texto: x.total ? "$" + x.total.toLocaleString("es-AR") : "Pedido" }), x.codigo ? el("span", { texto: " · código " + x.codigo }) : null]),
+            el("p", { texto: x.detalle }),
+            el("p", { clase: "meta", texto: fecha(x.creado) })
+          ]),
+          el("div", { clase: "acc" }, [sel])
+        ]));
+      });
+    });
+  }
+  $("fil-pedidos").addEventListener("change", cargarPedidos);
+
+  // ---------- Consultas ----------
+  function linkContacto(c) {
+    var num = c.replace(/[^\d]/g, "");
+    if (/^@?[a-z0-9._]{2,30}$/i.test(c.trim()) && /[a-z]/i.test(c)) return "https://ig.me/m/" + c.trim().replace(/^@/, "");
+    if (num.length >= 8) { if (num.indexOf("54") !== 0) num = "549" + num.replace(/^0/, ""); return "https://wa.me/" + num; }
+    return "";
+  }
+  function cargarConsultas() {
+    return db.from("consultas").select("*").order("respondida").order("creado", { ascending: false }).limit(200).then(function (r) {
+      var caja = $("l-consultas"); caja.replaceChildren();
+      var lista = r.data || [];
+      $("n-consultas").textContent = lista.filter(function (x) { return !x.respondida; }).length || "";
+      if (!lista.length) { caja.appendChild(el("p", { clase: "vacio", texto: "Todavía no hay consultas." })); return; }
+      lista.forEach(function (x) {
+        var link = linkContacto(x.contacto);
+        caja.appendChild(el("div", { clase: "card" + (x.respondida ? " hecha" : "") }, [
+          el("div", {}, [
+            el("p", {}, [x.respondida ? null : el("span", { clase: "chip", texto: "Nueva" }), el("b", { texto: x.nombre }), el("span", { texto: " · " + x.motivo })]),
+            el("p", { texto: x.mensaje }),
+            el("p", { clase: "meta" }, [link ? el("a", { href: link, target: "_blank", rel: "noopener", texto: x.contacto }) : el("span", { texto: x.contacto }), el("span", { texto: " · " + fecha(x.creado) })])
+          ]),
+          el("div", { clase: "acc" }, [
+            boton(x.respondida ? "Marcar sin responder" : "Marcar respondida", x.respondida ? "neutro" : "", function () { return db.from("consultas").update({ respondida: !x.respondida }).eq("id", x.id).then(revisar).then(cargarConsultas); }),
+            boton("Borrar", "peligro", function () { if (!confirm("¿Borrar esta consulta?")) return; return db.from("consultas").delete().eq("id", x.id).then(revisar).then(cargarConsultas); })
+          ])
+        ]));
+      });
+    });
+  }
+
+  // ---------- Reseñas ----------
+  function cargarResenas() {
+    var estado = $("fil-resenas").value;
+    db.from("resenas").select("id", { count: "exact", head: true }).eq("estado", "pendiente").then(function (r) { $("n-resenas").textContent = r.count || ""; });
+    return db.from("resenas").select("*").eq("estado", estado).order("creado", { ascending: false }).limit(100).then(function (r) {
+      var caja = $("l-resenas"); caja.replaceChildren();
+      var lista = r.data || [];
+      if (!lista.length) { caja.appendChild(el("p", { clase: "vacio", texto: estado === "pendiente" ? "No hay reseñas por aprobar." : "No hay reseñas acá." })); return; }
+      var fotos = lista.filter(function (x) { return x.foto; }).map(function (x) { return x.foto; });
+      var listo = fotos.length ? db.storage.from("resenas").createSignedUrls(fotos, 3600) : Promise.resolve({ data: [] });
+      return listo.then(function (u) {
+        var urls = {}; (u.data || []).forEach(function (y) { if (y.signedUrl) urls[y.path] = y.signedUrl; });
+        lista.forEach(function (x) {
+          var acciones = [];
+          if (estado !== "aprobada") acciones.push(boton("Publicar", "", function () { return db.from("resenas").update({ estado: "aprobada" }).eq("id", x.id).then(revisar).then(function () { aviso("Publicada. Ya se ve en la web."); cargarResenas(); }); }));
+          if (estado === "aprobada") acciones.push(boton("Sacar de la web", "neutro", function () { return db.from("resenas").update({ estado: "pendiente" }).eq("id", x.id).then(revisar).then(cargarResenas); }));
+          if (estado === "pendiente") acciones.push(boton("Rechazar", "neutro", function () { return db.from("resenas").update({ estado: "rechazada" }).eq("id", x.id).then(revisar).then(cargarResenas); }));
+          acciones.push(boton("Borrar", "peligro", function () {
+            if (!confirm("¿Borrar esta reseña para siempre?")) return;
+            var borrarFoto = x.foto ? db.storage.from("resenas").remove([x.foto]) : Promise.resolve();
+            return borrarFoto.then(function () { return db.from("resenas").delete().eq("id", x.id); }).then(revisar).then(cargarResenas);
+          }));
+          var img = x.foto && urls[x.foto] ? el("img", { src: urls[x.foto], alt: "Foto de la reseña" }) : null;
+          caja.appendChild(el("div", { clase: "card" }, [
+            el("div", { style: "display:flex;flex-direction:column;gap:8px" }, [
+              el("p", {}, [el("b", { texto: x.nombre })]),
+              el("p", { texto: "“" + x.texto + "”" }),
+              img, x.foto && !img ? el("p", { clase: "meta", texto: "Dijo que mandaba foto, pero no llegó." }) : null,
+              el("p", { clase: "meta", texto: fecha(x.creado) })
+            ]),
+            el("div", { clase: "acc" }, acciones)
+          ]));
+        });
+      });
+    });
+  }
+  $("fil-resenas").addEventListener("change", cargarResenas);
+
+  // ---------- Banner ----------
+  function vistaBanner() { $("t-vista").textContent = $("t-on").checked ? ($("t-txt").value || "(escribí un texto)") : "Apagado: no se muestra nada."; }
+  $("t-on").addEventListener("change", vistaBanner); $("t-txt").addEventListener("input", vistaBanner);
+  function cargarBanner() {
+    return db.from("config").select("*").eq("id", 1).maybeSingle().then(function (r) {
+      if (!r.data) return; $("t-on").checked = r.data.banner_on; $("t-txt").value = r.data.banner_texto; vistaBanner();
+    });
+  }
+  $("t-guardar").addEventListener("click", function () {
+    var txt = $("t-txt").value.trim().slice(0, 140);
+    if ($("t-on").checked && !txt) { aviso("Escribí el texto del banner."); return; }
+    db.from("config").update({ banner_on: $("t-on").checked, banner_texto: txt, actualizado: new Date().toISOString() }).eq("id", 1).then(revisar)
+      .then(function () { aviso($("t-on").checked ? "Listo, el banner ya se ve en la web." : "Listo, el banner está apagado."); });
+  });
+
+  // ---------- Carteles QR ----------
+  function cargarQR() {
+    return Promise.all([db.from("lugares").select("*").order("nombre"), db.from("visitas_qr").select("*")]).then(function (rs) {
+      var lugares = rs[0].data || [], visitas = rs[1].data || [];
+      var hoy = new Date().toLocaleDateString("en-CA", { timeZone: "America/Argentina/Buenos_Aires" });
+      var hace7 = new Date(Date.now() - 6 * 864e5).toLocaleDateString("en-CA", { timeZone: "America/Argentina/Buenos_Aires" });
+      var tb = $("l-qr"); tb.replaceChildren();
+      lugares.forEach(function (l) {
+        var mias = visitas.filter(function (v) { return v.lugar === l.slug; });
+        var suma = function (f) { return mias.filter(f).reduce(function (a, v) { return a + v.cantidad; }, 0); };
+        var chk = el("input", { type: "checkbox", "aria-label": "Cartel activo" }); chk.checked = l.activo;
+        chk.addEventListener("change", function () { db.from("lugares").update({ activo: chk.checked }).eq("slug", l.slug).then(revisar).then(function () { aviso(chk.checked ? "Cartel activado." : "Cartel desactivado: el código deja de aparecer."); }); });
+        tb.appendChild(el("tr", {}, [
+          el("td", { texto: l.nombre }),
+          el("td", { texto: location.host + "/#qr-" + l.slug }),
+          el("td", { texto: String(suma(function (v) { return v.dia === hoy; })) }),
+          el("td", { texto: String(suma(function (v) { return v.dia >= hace7; })) }),
+          el("td", { texto: String(suma(function () { return true; })) }),
+          el("td", {}, [chk])
+        ]));
+      });
+    });
+  }
+
+  // ---------- Arranque ----------
+  var abierto = false;
+  function abrirPanel() {
+    if (pideClave) { if (location.hash) history.replaceState(null, "", location.pathname); db.auth.getUser().then(function (u) { if (u.data && u.data.user) $("c-user").value = u.data.user.email || ""; }); ver("v-clave"); return; }
+    if (abierto) return; abierto = true;
+    ver("v-cargando");
+    db.rpc("es_admin").then(function (r) {
+      if (r.error || !r.data) { abierto = false; ver("v-sinpermiso"); return; }
+      ver("v-panel");
+      if (location.hash) history.replaceState(null, "", location.pathname);
+      cargarPedidos(); cargarConsultas(); cargarResenas(); cargarBanner(); cargarQR();
+    });
+  }
+  db.auth.getSession().then(function (r) {
+    var errHash = /error_description=([^&]+)/.exec(location.hash);
+    if (r.data && r.data.session) abrirPanel();
+    else { ver("v-login"); if (errHash) $("l-msg").textContent = "El link venció o ya se usó. Tocá \"Me olvidé la contraseña\" para pedir otro."; }
+  });
+  db.auth.onAuthStateChange(function (ev) { if (ev === "PASSWORD_RECOVERY") pideClave = true; if (ev === "SIGNED_IN" || ev === "PASSWORD_RECOVERY") abrirPanel(); if (ev === "SIGNED_OUT") { abierto = false; ver("v-login"); } });
+})();
+</script>
+</body>
+</html>

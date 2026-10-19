@@ -1,0 +1,6 @@
+# Netlify publica la web desde este repositorio.
+[build]
+  publish = "."
+  edge_functions = "netlify/edge-functions"
+  # No hay nada que compilar: la web es HTML, CSS y JS.
+  command = "echo Sitio estatico"
