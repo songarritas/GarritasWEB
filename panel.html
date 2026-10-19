@@ -133,15 +133,24 @@ th { font-size: .85rem; color: var(--gris); }
     <section class="panel" id="qr" hidden>
       <p class="vacio" style="padding:0">Cuántas personas entraron desde cada cartel. Cada persona cuenta una vez por día.</p>
       <div class="scroll"><table>
-        <thead><tr><th>Cartel</th><th>Link del QR</th><th>Hoy</th><th>Últimos 7 días</th><th>Total</th><th>Activo</th></tr></thead>
+        <thead><tr><th>Cartel</th><th>Código</th><th>Hoy</th><th>Últimos 7 días</th><th>Total</th><th>Activo</th><th>QR</th></tr></thead>
         <tbody id="l-qr"></tbody>
       </table></div>
+      <form class="caja" id="f-lugar">
+        <b>Sumar un cartel nuevo</b>
+        <label>Lugar<input type="text" id="n-nombre" maxlength="40" required placeholder="Ej: Biblioteca Central"></label>
+        <label>Código de descuento<input type="text" id="n-codigo" maxlength="20" required placeholder="Ej: BIBLIO10" style="text-transform:uppercase"></label>
+        <label>Descuento (%)<input type="text" inputmode="numeric" id="n-desc" maxlength="2" value="10" required></label>
+        <p class="msg" id="n-msg" aria-live="polite"></p>
+        <div><button class="btn" type="submit">Crear cartel</button></div>
+      </form>
     </section>
   </div>
 </main>
 
 <script src="supabase.js"></script>
 <script src="config.js"></script>
+<script src="qrcode.js"></script>
 <script>
 (function () {
   var db = window.supabase.createClient(window.GM.url, window.GM.clave, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
@@ -283,6 +292,7 @@ th { font-size: .85rem; color: var(--gris); }
         lista.forEach(function (x) {
           var acciones = [];
           if (estado !== "aprobada") acciones.push(boton("Publicar", "", function () { return db.from("resenas").update({ estado: "aprobada" }).eq("id", x.id).then(revisar).then(function () { aviso("Publicada. Ya se ve en la web."); cargarResenas(); }); }));
+          if (estado === "aprobada") acciones.push(boton(x.destacada ? "★ Quitar destacada" : "☆ Destacar", x.destacada ? "" : "neutro", function () { return db.from("resenas").update({ destacada: !x.destacada }).eq("id", x.id).then(revisar).then(function () { aviso(x.destacada ? "Ya no está destacada." : "Destacada: sale primera en la web."); cargarResenas(); }); }));
           if (estado === "aprobada") acciones.push(boton("Sacar de la web", "neutro", function () { return db.from("resenas").update({ estado: "pendiente" }).eq("id", x.id).then(revisar).then(cargarResenas); }));
           if (estado === "pendiente") acciones.push(boton("Rechazar", "neutro", function () { return db.from("resenas").update({ estado: "rechazada" }).eq("id", x.id).then(revisar).then(cargarResenas); }));
           acciones.push(boton("Borrar", "peligro", function () {
@@ -293,7 +303,7 @@ th { font-size: .85rem; color: var(--gris); }
           var img = x.foto && urls[x.foto] ? el("img", { src: urls[x.foto], alt: "Foto de la reseña" }) : null;
           caja.appendChild(el("div", { clase: "card" }, [
             el("div", { style: "display:flex;flex-direction:column;gap:8px" }, [
-              el("p", {}, [el("b", { texto: x.nombre })]),
+              el("p", {}, [x.destacada ? el("span", { clase: "chip", texto: "★ Destacada" }) : null, el("b", { texto: x.nombre })]),
               el("p", { texto: "“" + x.texto + "”" }),
               img, x.foto && !img ? el("p", { clase: "meta", texto: "Dijo que mandaba foto, pero no llegó." }) : null,
               el("p", { clase: "meta", texto: fecha(x.creado) })
@@ -335,15 +345,61 @@ th { font-size: .85rem; color: var(--gris); }
         chk.addEventListener("change", function () { db.from("lugares").update({ activo: chk.checked }).eq("slug", l.slug).then(revisar).then(function () { aviso(chk.checked ? "Cartel activado." : "Cartel desactivado: el código deja de aparecer."); }); });
         tb.appendChild(el("tr", {}, [
           el("td", { texto: l.nombre }),
-          el("td", { texto: location.host + "/#qr-" + l.slug }),
+          el("td", { texto: l.codigo + " · " + l.descuento + "%" }),
           el("td", { texto: String(suma(function (v) { return v.dia === hoy; })) }),
           el("td", { texto: String(suma(function (v) { return v.dia >= hace7; })) }),
           el("td", { texto: String(suma(function () { return true; })) }),
-          el("td", {}, [chk])
+          el("td", {}, [chk]),
+          el("td", {}, [boton("Descargar QR", "", function () { return descargarQR(l); })])
         ]));
       });
     });
   }
+
+  // Imagen del QR lista para imprimir (A5 vertical, colores de la marca)
+  function descargarQR(l) {
+    var url = location.origin + "/#qr-" + l.slug;
+    var q = qrcode(0, "M"); q.addData(url); q.make();
+    var n = q.getModuleCount(), W = 1240, H = 1748, lado = 820, cel = Math.floor(lado / (n + 8)), tam = cel * (n + 8), x0 = (W - tam) / 2, y0 = 470;
+    var c = document.createElement("canvas"); c.width = W; c.height = H; var g = c.getContext("2d");
+    var fuentes = Promise.all(['64px "Berkshire Swash"', '800 40px "Outfit"', '600 30px "Outfit"'].map(function (f) { return document.fonts ? document.fonts.load(f) : Promise.resolve(); })).catch(function () {});
+    return fuentes.then(function () {
+      g.fillStyle = "#FFF49D"; g.fillRect(0, 0, W, H);
+      g.strokeStyle = "#272224"; g.lineWidth = 14; g.strokeRect(40, 40, W - 80, H - 80);
+      g.fillStyle = "#272224"; g.textAlign = "center";
+      g.font = '120px "Berkshire Swash", cursive'; g.fillText("Garritas Mías", W / 2, 220);
+      g.font = '800 46px "Outfit", sans-serif'; g.fillText("UÑAS PRESS ON PINTADAS A MANO", W / 2, 300);
+      g.font = '600 40px "Outfit", sans-serif'; g.fillText("Escaneá y armá las tuyas", W / 2, 395);
+      g.fillStyle = "#FFFFFF"; g.fillRect(x0, y0, tam, tam); g.strokeStyle = "#272224"; g.lineWidth = 8; g.strokeRect(x0, y0, tam, tam);
+      g.fillStyle = "#272224";
+      for (var r = 0; r < n; r++) for (var k = 0; k < n; k++) if (q.isDark(r, k)) g.fillRect(x0 + (k + 4) * cel, y0 + (r + 4) * cel, cel, cel);
+      var yb = y0 + tam + 70;
+      g.fillStyle = "#FC97C6"; g.fillRect(140, yb, W - 280, 250); g.strokeRect(140, yb, W - 280, 250);
+      g.fillStyle = "#272224"; g.font = '800 44px "Outfit", sans-serif'; g.fillText(l.descuento + "% OFF EN TU PRIMER PEDIDO", W / 2, yb + 85);
+      g.font = '600 34px "Outfit", sans-serif'; g.fillText("con el código", W / 2, yb + 140);
+      g.font = '800 76px "Outfit", sans-serif'; g.fillText(l.codigo, W / 2, yb + 222);
+      g.font = '600 32px "Outfit", sans-serif'; g.fillText("@garritas.mias", W / 2, H - 90);
+      return new Promise(function (ok) { c.toBlob(function (b) {
+        var a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "qr-garritas-" + l.slug + ".png";
+        document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 2000); ok();
+      }, "image/png"); });
+    });
+  }
+  function aSlug(t) { return t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z]/g, "").slice(0, 20); }
+  $("n-nombre").addEventListener("input", function () { if (!$("n-codigo").dataset.tocado) $("n-codigo").value = (aSlug(this.value).slice(0, 10).toUpperCase() + ($("n-desc").value || "10")); });
+  $("n-codigo").addEventListener("input", function () { this.dataset.tocado = "1"; });
+  $("f-lugar").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var nombre = $("n-nombre").value.trim(), cod = $("n-codigo").value.trim().toUpperCase().replace(/[^A-Z0-9]/g, ""), d = parseInt($("n-desc").value, 10), slug = aSlug(nombre);
+    if (nombre.length < 2 || slug.length < 3) { $("n-msg").textContent = "Escribí el nombre del lugar (al menos 3 letras)."; return; }
+    if (cod.length < 3) { $("n-msg").textContent = "El código tiene que tener al menos 3 letras o números."; return; }
+    if (!(d >= 1 && d <= 50)) { $("n-msg").textContent = "El descuento tiene que ser entre 1 y 50."; return; }
+    $("n-msg").textContent = "Creando...";
+    db.from("lugares").insert({ slug: slug, nombre: nombre, codigo: cod, descuento: d, activo: true }).then(function (r) {
+      if (r.error) { $("n-msg").textContent = /duplicate|unique/i.test(r.error.message) ? "Ya existe un cartel con ese lugar o ese código." : "No se pudo crear. Probá de nuevo."; return; }
+      $("n-msg").textContent = "Listo, cartel creado. Ya podés descargar su QR."; $("f-lugar").reset(); delete $("n-codigo").dataset.tocado; cargarQR();
+    });
+  });
 
   // ---------- Arranque ----------
   var abierto = false;

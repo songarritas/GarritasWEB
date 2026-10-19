@@ -299,6 +299,8 @@ section { padding-block: 72px; }
 .lista-resenas { display: flex; flex-direction: column; gap: 14px; }
 .tarjeta-resena { background: var(--blanco); border: 3px solid var(--tinta); border-radius: 18px; padding: 18px; box-shadow: 5px 5px 0 var(--rosa); display: flex; flex-direction: column; gap: 10px; }
 .tarjeta-resena p { margin: 0; }
+.tarjeta-resena.destacada { background: var(--amarillo); box-shadow: 7px 7px 0 var(--tinta); font-size: 1.12rem; }
+.tarjeta-resena.destacada .quien::before { content: "★ "; color: var(--rosa); -webkit-text-stroke: 1px var(--tinta); }
 .tarjeta-resena .quien { font-weight: 800; }
 .tarjeta-resena img { width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; border: 2.5px solid var(--tinta); }
 .qr-banner { background: var(--rosa); border-bottom: 3px solid var(--tinta); }
@@ -343,7 +345,7 @@ section { padding-block: 72px; }
   <div class="temporada" id="temporada" hidden><div class="wrap"><p id="temporada-txt"></p></div></div>
   <div class="qr-banner" id="qr-banner" hidden>
     <div class="wrap">
-      <p>Llegaste por el cartel de <span id="qr-lugar"></span>. Tu código para un 10% OFF en tu primer pedido:</p>
+      <p>Llegaste por el cartel de <span id="qr-lugar"></span>. Tu código para un <span id="qr-desc">10% OFF</span> en tu primer pedido:</p>
       <span class="cod" id="qr-cod"></span>
       <button type="button" id="qr-copiar">Copiar código</button>
     </div>
@@ -613,16 +615,18 @@ section { padding-block: 72px; }
   };
   var IG = "https://ig.me/m/garritas.mias";
   var codigo = "";
-  var lugares = { medicina: "Medicina", derecho: "Derecho", economicas: "Económicas", humanidades: "Humanidades", ingenieria: "Ingeniería", psicologia: "Psicología", arquitectura: "Arquitectura", exactas: "Exactas", salud: "Ciencias de la Salud" };
-  var m = (location.hash || "").match(/^#qr-([a-z]+)$/);
-  if (m && lugares[m[1]]) {
-    codigo = m[1].toUpperCase() + "10";
-    document.getElementById("qr-lugar").textContent = lugares[m[1]];
-    document.getElementById("qr-cod").textContent = codigo;
+  var lugarQR = ((location.hash || "").match(/^#qr-([a-z]{3,20})$/) || [])[1] || "";
+  // El cartel, su código y su descuento se cargan de la base (los maneja Stefy desde el panel)
+  function mostrarCartel(l) {
+    codigo = l.codigo;
+    document.getElementById("qr-lugar").textContent = l.nombre;
+    document.getElementById("qr-cod").textContent = l.codigo;
+    document.getElementById("qr-desc").textContent = l.descuento + "% OFF";
     document.getElementById("qr-banner").hidden = false;
     document.getElementById("qr-copiar").addEventListener("click", function () {
       var btn = this; try { navigator.clipboard.writeText(codigo).then(function () { btn.textContent = "Copiado"; }, function () { btn.textContent = "Mantené apretado el código"; }); } catch (e) { btn.textContent = "Mantené apretado el código"; }
     });
+    if (typeof pintar === "function") pintar();
   }
 
   // Menú móvil
@@ -715,14 +719,14 @@ section { padding-block: 72px; }
   });
 
   // Reseñas aprobadas
-  if (db) db.from("resenas").select("nombre, texto, foto, creado").eq("estado", "aprobada").order("creado", { ascending: false }).limit(12).then(function (r) {
+  if (db) db.from("resenas").select("nombre, texto, foto, creado, destacada").eq("estado", "aprobada").order("destacada", { ascending: false }).order("creado", { ascending: false }).limit(12).then(function (r) {
     var lista = r.data || [];
     if (!lista.length) return;
     var caja = document.getElementById("lista-resenas");
     var fotos = lista.filter(function (x) { return x.foto; }).map(function (x) { return x.foto; });
     var pintarLista = function (urls) {
       lista.forEach(function (x) {
-        var art = document.createElement("article"); art.className = "tarjeta-resena";
+        var art = document.createElement("article"); art.className = "tarjeta-resena" + (x.destacada ? " destacada" : "");
         if (x.foto && urls[x.foto]) { var im = document.createElement("img"); im.src = urls[x.foto]; im.alt = "Garritas de " + x.nombre; im.loading = "lazy"; art.appendChild(im); }
         var p = document.createElement("p"); p.textContent = "“" + x.texto + "”"; art.appendChild(p);
         var q = document.createElement("p"); q.className = "quien"; q.textContent = x.nombre; art.appendChild(q);
@@ -739,7 +743,11 @@ section { padding-block: 72px; }
   });
 
   // Visita desde un cartel QR
-  if (db && codigo) { var lugarQR = (location.hash || "").replace("#qr-", ""); db.rpc("registrar_visita", { p_lugar: lugarQR }).then(function () {}, function () {}); }
+  if (db && lugarQR) db.from("lugares").select("nombre, codigo, descuento").eq("slug", lugarQR).eq("activo", true).maybeSingle().then(function (r) {
+    if (!r.data) return;
+    mostrarCartel(r.data);
+    db.rpc("registrar_visita", { p_lugar: lugarQR }).then(function () {}, function () {});
+  });
 
   // Pedido armado: se guarda para el panel cuando la clienta lo copia
   var ultimoPedido = "";
