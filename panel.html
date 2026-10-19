@@ -58,7 +58,7 @@ th { font-size: .85rem; color: var(--gris); }
 <body>
 <header class="top">
   <h1>Panel de Garritas</h1>
-  <div class="der"><a href="/" target="_blank" rel="noopener">Ver la web</a><button type="button" id="salir" hidden>Salir</button></div>
+  <div class="der"><a href="/" target="_blank" rel="noopener">Ver la web</a><button type="button" id="clave" hidden>Cambiar contraseña</button><button type="button" id="salir" hidden>Salir</button></div>
 </header>
 
 <main>
@@ -83,6 +83,7 @@ th { font-size: .85rem; color: var(--gris); }
       <label>Repetila<input type="password" id="c-pass2" autocomplete="new-password" required minlength="10" maxlength="72"></label>
       <p class="msg" id="c-msg" aria-live="polite"></p>
       <button class="btn" type="submit" id="c-btn">Guardar contraseña</button>
+      <button class="btn neutro chico" type="button" id="c-volver" style="align-self:flex-start" hidden>Volver al panel</button>
     </form>
   </section>
 
@@ -146,7 +147,7 @@ th { font-size: .85rem; color: var(--gris); }
   var db = window.supabase.createClient(window.GM.url, window.GM.clave, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
   var $ = function (id) { return document.getElementById(id); };
   var vistas = ["v-login", "v-clave", "v-cargando", "v-sinpermiso", "v-panel"];
-  function ver(id) { vistas.forEach(function (v) { $(v).hidden = v !== id; }); $("salir").hidden = id !== "v-panel"; }
+  function ver(id) { vistas.forEach(function (v) { $(v).hidden = v !== id; }); $("salir").hidden = id !== "v-panel"; $("clave").hidden = id !== "v-panel"; }
   function el(tag, props, hijos) {
     var e = document.createElement(tag);
     Object.keys(props || {}).forEach(function (k) { if (k === "texto") e.textContent = props[k]; else if (k === "clase") e.className = props[k]; else e.setAttribute(k, props[k]); });
@@ -185,6 +186,7 @@ th { font-size: .85rem; color: var(--gris); }
   });
   // Primera vez (invitación) o contraseña olvidada: elegir contraseña
   var pideClave = /type=(invite|recovery)/.test(location.hash);
+  $("c-volver").addEventListener("click", function () { pideClave = false; ver("v-panel"); });
   $("f-clave").addEventListener("submit", function (e) {
     e.preventDefault();
     var a = $("c-pass").value, b = $("c-pass2").value;
@@ -194,10 +196,11 @@ th { font-size: .85rem; color: var(--gris); }
     db.auth.updateUser({ password: a }).then(function (r) {
       $("c-btn").disabled = false;
       if (r.error) { $("c-msg").textContent = /weak|short|pwned/i.test(r.error.message) ? "Esa contraseña es muy fácil. Probá con otra." : "No se pudo guardar. Probá de nuevo."; return; }
-      pideClave = false; $("c-pass").value = ""; $("c-pass2").value = ""; abierto = false; abrirPanel();
+      pideClave = false; $("c-pass").value = ""; $("c-pass2").value = ""; if (abierto) { ver("v-panel"); aviso("Listo, contraseña guardada."); } else abrirPanel();
     });
   });
   function salir() { db.auth.signOut().then(function () { location.replace("/panel"); }); }
+  $("clave").addEventListener("click", function () { pideClave = true; abrirPanel(); });
   $("salir").addEventListener("click", salir); $("salir2").addEventListener("click", salir);
 
   // ---------- Pestañas ----------
@@ -345,6 +348,7 @@ th { font-size: .85rem; color: var(--gris); }
   // ---------- Arranque ----------
   var abierto = false;
   function abrirPanel() {
+    $("c-volver").hidden = !abierto;
     if (pideClave) { if (location.hash) history.replaceState(null, "", location.pathname); db.auth.getUser().then(function (u) { if (u.data && u.data.user) $("c-user").value = u.data.user.email || ""; }); ver("v-clave"); return; }
     if (abierto) return; abierto = true;
     ver("v-cargando");
